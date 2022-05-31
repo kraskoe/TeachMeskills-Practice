@@ -1,12 +1,22 @@
 @import "_header";
 
-p {
-	font-size: 20px;
-	div {
-		font-size: 10px;
-	}
+// p {
+// 	font-size: 20px;
+// 	div {
+// 		font-size: 10px;
+// 	}
+// }
+
+// .header {
+// 	color: red;
+// }
+
+.grid___body {
+	display: grid;
 }
 
-.header {
-	color: red;
+.grid___item {
+	text-align: center;
+	border: 2px dashed rgba(255,255,255,0.2);
+	padding: 30px;
 }
