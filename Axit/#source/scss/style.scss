@@ -1,0 +1,89 @@
+// ---IMPORT---
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,regular,500,600,700,800,900);
+@import "_nullify_style.scss";
+@import "_about.scss";
+// ---VARIABLES---
+
+// ---TEMPLATES---
+
+// ---MIXINS---
+
+// ---MAIN---
+
+.container {
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+	@media (max-width: 1025px) {
+		min-width: 375px;
+	}
+	@media (max-width: 321px) {
+		min-width: 140px;
+	}
+}
+.title {
+	font-family: "Raleway";
+	font-size: 36px;
+	line-height: 42px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 110px;
+	&::after {
+		content: "";
+		display: block;
+		width: 170px;
+		height: 1px;
+		background: #ec7979;
+		margin: 60px auto 40px;
+	}
+	@media (max-width: 1025px) {
+		font-size: 24px;
+		line-height: 28px;
+		margin-top: 100px;
+		&::after {
+			width: 142px;
+			margin: 50px auto 30px;
+		}
+	}
+	@media (max-width: 321px) {
+		font-size: 18px;
+		line-height: 21px;
+		margin-top: 80px;
+		&::after {
+			width: 134px;
+			margin: 50px auto 25px;
+		}
+	}
+}
+.slogan {
+	font-family: "Raleway";
+	font-size: 18px;
+	line-height: 21px;
+	text-align: center;
+	@media (max-width: 1025px) {
+		font-size: 14px;
+		line-height: 16px;
+	}
+	@media (max-width: 321px) {
+		font-size: 13px;
+		line-height: 15px;
+	}
+}
+.flex-block {
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: 321px) {
+			flex-direction: column;
+		}
+	}
+
+	&__col {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+}
