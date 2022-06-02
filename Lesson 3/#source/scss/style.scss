@@ -1,0 +1,58 @@
+// ---IMPORT---
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@import "_nullify_style.scss";
+// ---VARIABLES---
+
+// ---TEMPLATES---
+
+// ---MIXINS---
+
+// ---MAIN---
+
+.store {
+	&__title {
+		margin: 75px 0 49px;
+	}
+
+	&__showcase {
+	}
+}
+.container {
+	max-width: 1370px;
+	margin: 0 auto;
+}
+.title {
+	font-family: "Roboto";
+	font-size: 28px;
+	line-height: 36px;
+	text-align: center;
+	color: #757575;
+}
+.showcase {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex: 0 1 25%;
+	&__item {
+		position: relative;
+	}
+
+	&__pic {
+	}
+
+	&__caption {
+		font-family: "Roboto";
+		font-size: 14px;
+		line-height: 21px;
+		color: #757575;
+		padding: 13px 15px;
+		border-radius: 10px;
+		background: #fff;
+		position: absolute;
+		z-index: 2;
+		bottom: -50px;
+		left: 50%;
+		width: 90%;
+		transform: translateX(-50%);
+	}
+}
