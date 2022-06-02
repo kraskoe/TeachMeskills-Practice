@@ -1,0 +1,67 @@
+header {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+  background: #c2bdbd;
+}
+
+.grid__body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-auto-rows: 100px;
+  justify-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  row-gap: 50px;
+  -webkit-column-gap: 50px;
+          column-gap: 50px;
+}
+
+.grid__item {
+  text-align: center;
+  border: 2px dashed black;
+  padding: 30px;
+}
+
+.grid__item_l {
+  background: #690f0f;
+  -ms-grid-row: span 4;
+      grid-row-start: span 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.grid__wrapper {
+  display: -ms-grid;
+  display: grid;
+  grid-template: [start] "header header" 100px [row2] [row2] "side content" 1fr [row-end]/200px 1fr;
+}
+
+.grid__header {
+  grid-area: header;
+}
+
+.grid__side {
+  grid-area: side;
+}
+
+.grid__content {
+  grid-area: content;
+}
+
+.grid__header, .grid__side, .grid__content {
+  text-align: center;
+  border: 2px dashed black;
+  padding: 20px;
+}

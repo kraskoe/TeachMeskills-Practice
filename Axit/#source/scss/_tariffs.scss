@@ -1,0 +1,137 @@
+.tariff {
+	background: #f5f5f5;
+	padding-top: 110px;
+	padding-bottom: 50px;
+
+	&__title {
+	}
+
+	&__slogan {
+		margin-bottom: 80px;
+	}
+
+	&__flex {
+	}
+
+	&__block {
+	}
+	&__row {
+	}
+	&__col {
+		flex: 0 1 32%;
+		position: relative;
+		border: 1px solid #f5f5f5;
+	}
+	&__wrapper {
+		width: 100%;
+		transition: all 0.5s ease-out 0.2s;
+		&:hover {
+			position: absolute;
+			transform: translateY(-20px);
+			transition: all 0.5s ease-out 0.2s;
+			// margin-top: -20px;
+			box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.2);
+		}
+	}
+
+	&__plan,
+	&__price,
+	&__term {
+		width: 100%;
+		background: #333333;
+		color: #fff;
+		text-align: center;
+		margin-bottom: 2px;
+	}
+
+	&__plan {
+		font-family: "Open Sans";
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 33px;
+		padding: 20px;
+	}
+
+	&__price {
+		font-family: "Raleway";
+		font-weight: 700;
+		font-size: 36px;
+		line-height: 42px;
+		padding: 30px;
+	}
+
+	&__term {
+		font-family: "Raleway";
+		font-size: 18px;
+		line-height: 21px;
+		padding: 15px;
+		color: #86878b;
+	}
+
+	&__list {
+		width: 100%;
+	}
+
+	&__item {
+		width: 100%;
+		background: #fff;
+		font-family: "Raleway";
+		font-size: 18px;
+		line-height: 21px;
+		text-align: center;
+		text-transform: capitalize;
+		padding: 15px;
+		color: #86878b;
+		margin-bottom: 2px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	@media (max-width: 1025px) {
+		padding-top: 100px;
+		&__plan {
+			padding: 17px;
+		}
+		&__price {
+			padding: 25px;
+		}
+	}
+	@media (max-width: 321px) {
+		padding-top: 50px;
+		padding-bottom: 26px;
+		&__col {
+			margin-bottom: 27px;
+			width: 100%;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		&__plan {
+			padding: 16px;
+			font-size: 18px;
+			line-height: 25px;
+		}
+		&__price {
+			padding: 25px;
+			font-size: 24px;
+			line-height: 28px;
+		}
+		&__term {
+			font-size: 14px;
+			line-height: 16px;
+			padding: 12px;
+		}
+		&__item {
+			font-size: 14px;
+			line-height: 16px;
+			padding: 12px;
+		}
+		&__wrapper:hover {
+			position: relative;
+			transform: translateY(0px);
+			transition: all 0.5s ease-out 0.2s;
+			box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.2);
+		}
+	}
+}

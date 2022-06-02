@@ -1,0 +1,49 @@
+.footer {
+	background: #000;
+	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 35px 0 28px;
+		@media (max-width: 1025px) {
+			padding: 35px 0 38px;
+		}
+		@media (max-width: 321px) {
+			padding: 35px 0 42px;
+		}
+	}
+
+	&__link {
+		font-size: 53px;
+		padding-right: 16px;
+		&:last-child {
+			padding-right: 0;
+		}
+		@media (max-width: 1025px) {
+			font-size: 45px;
+			padding-right: 14px;
+		}
+		@media (max-width: 321px) {
+			font-size: 26px;
+			padding-right: 17px;
+		}
+	}
+}
+.copy {
+	font-family: "Raleway";
+	font-size: 18px;
+	line-height: 21px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+	padding-bottom: 27px;
+	@media (max-width: 1025px) {
+		font-size: 14px;
+		line-height: 16px;
+		padding-bottom: 30px;
+	}
+	@media (max-width: 321px) {
+		font-size: 14px;
+		line-height: 16px;
+		padding-bottom: 45px;
+	}
+}
