@@ -1,14 +1,5 @@
 .about {
-	&__title {
-		margin-top: 110px;
-		@media (max-width: 1025px) {
-			margin-top: 100px;
-		}
-		@media (max-width: 321px) {
-			margin-top: 80px;
-		}
-
-	}
+	padding: 99px 0 58px;
 
 	&__slogan {
 		margin-bottom: 110px;
@@ -44,14 +35,16 @@
 		font-size: 18px;
 		line-height: 21px;
 		text-align: center;
-		margin-bottom: 58px;
 		padding: 0 10px;
 	}
 
 	@media (max-width: 1025px) {
+		padding: 50px 0 60px;
+
 		&__slogan {
 			margin-bottom: 65px;
 		}
+
 		&__icon {
 			width: 80px;
 			height: 80px;
@@ -69,6 +62,8 @@
 		}
 	}
 	@media (max-width: 321px) {
+		padding: 41px 0 60px;
+
 		&__slogan {
 			margin-bottom: 80px;
 		}
@@ -86,7 +81,194 @@
 		&__desc {
 			font-size: 14px;
 			line-height: 16px;
-			margin-bottom: 43px;
+		}
+	}
+}
+
+.tabs {
+	margin-bottom: 110px;
+
+	&__block {
+		position: relative;
+		display: none;
+		border: 1px solid #c6cbcd;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -41px;
+			height: 41px;
+			width: 16.666%;
+			border-top: 1px solid #c6cbcd;
+			border-left: 1px solid #c6cbcd;
+			border-right: 1px solid #c6cbcd;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			background: #ffffff;
+		}
+
+		&:nth-child(2)::before {
+			left: -1px;
+		}
+		&:nth-child(3)::before {
+			left: 16.667%;
+		}
+		&:nth-child(4)::before {
+			left: 33.334%;
+		}
+
+		&:target {
+			display: block;
+		}
+	}
+
+	&__list {
+		width: 50%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+	}
+
+	&__link {
+		flex: 0 1 33.333%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "Open Sans";
+		font-size: 14px;
+		line-height: 20px;
+		text-transform: uppercase;
+		color: #333333;
+		padding: 10px;
+
+		& a {
+			position: relative;
+			z-index: 2;
+		}
+
+		& a:link,
+		& a:visited,
+		& a:hover,
+		& a:active {
+			color: #333333;
+		}
+	}
+
+	&__content {
+		width: 100%;
+		display: flex;
+	}
+
+	&__text-column {
+		flex: 0 1 60%;
+		padding: 3.5% 2% 4.5% 8%;
+	}
+
+	&__title {
+		font-family: "Open Sans";
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 41px;
+		margin-bottom: 68px;
+	}
+
+	&__text {
+		font-family: "Raleway";
+		font-size: 18px;
+		line-height: 21px;
+		margin-bottom: 27px;
+	}
+
+	&__image-column {
+		flex: 0 1 40%;
+	}
+
+	&__button {
+		width: 100%;
+		max-width: 270px;
+	}
+
+	@media (max-width: 1025px) {
+		margin-bottom: 100px;
+
+		&__title {
+			font-size: 24px;
+			line-height: 33px;
+			margin-bottom: 65px;
+		}
+
+		&__text {
+			font-size: 14px;
+			line-height: 16px;
+			margin-bottom: 38px;
+		}
+
+		&__button {
+			max-width: 232px;
+		}
+	}
+	@media (max-width: 321px) {
+		margin-bottom: 50px;
+
+		&__title {
+			font-size: 18px;
+			line-height: 25px;
+			margin-bottom: 60px;
+		}
+
+		&__text {
+			font-size: 13px;
+			line-height: 15px;
+			margin-bottom: 29px;
+		}
+
+		&__button {
+			max-width: 242px;
+			margin: 0 auto;
+		}
+
+		&__text-column {
+			flex: 0 1 100%;
+			padding: 30px 10px;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+
+		&__image-column {
+			display: none;
+		}
+
+		&__list {
+			width: 100%;
+		}
+
+		&__link {
+			padding: 5px;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		&__block {
+			position: relative;
+			display: none;
+			border: 1px solid #c6cbcd;
+
+			&::before {
+				width: 33.333%;
+			}
+
+			&:nth-child(2)::before {
+				left: -1px;
+			}
+			&:nth-child(3)::before {
+				left: 33.334%;
+			}
+			&:nth-child(4)::before {
+				left: 67%;
+			}
 		}
 	}
 }

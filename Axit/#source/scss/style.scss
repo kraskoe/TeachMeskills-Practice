@@ -2,9 +2,15 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:regular,500,600,700);
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,regular,500,600,700,800,900);
 @import "_nullify_style.scss";
+@import "_nullify_buttons.scss";
+@import "_nullify_links.scss";
+@import "_header.scss";
+@import "_banner.scss";
 @import "_socials.scss";
 @import "_about.scss";
 @import "_tariffs.scss";
+@import "_download.scss";
+@import "_contact.scss";
 @import "_footer.scss";
 // ---VARIABLES---
 
@@ -13,13 +19,6 @@
 // ---MIXINS---
 
 // ---MAIN---
-
-a:link,
-a:visited,
-a:hover,
-a:active {
-	text-decoration: none;
-}
 
 .container {
 	max-width: 1200px;
@@ -32,6 +31,7 @@ a:active {
 		min-width: 140px;
 	}
 }
+
 .title {
 	font-family: "Raleway";
 	font-size: 36px;
@@ -63,11 +63,13 @@ a:active {
 		}
 	}
 }
+
 .slogan {
 	font-family: "Raleway";
 	font-size: 18px;
 	line-height: 21px;
 	text-align: center;
+	color: #86878b;
 	@media (max-width: 1025px) {
 		font-size: 14px;
 		line-height: 16px;
@@ -77,6 +79,7 @@ a:active {
 		line-height: 15px;
 	}
 }
+
 .flex-block {
 	&__row {
 		display: flex;
@@ -93,6 +96,114 @@ a:active {
 		align-items: center;
 		flex-direction: column;
 		min-width: 135px;
+
+		@media (max-width: 321px) {
+			margin-bottom: 43px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 
+.ibg {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	& img {
+		display: none;
+	}
+}
+
+.button {
+	display: block;
+	text-align: center;
+	font-family: "Open Sans";
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 18px;
+	text-transform: capitalize;
+	padding: 20px;
+
+	&_red {
+		color: #ffffff;
+		background: #ec7979;
+
+		&:hover {
+			background: #ab4949;
+		}
+
+		&:active {
+			background: #ec7979;
+			box-shadow: inset 0px 0px 10px #ab4949;
+		}
+	}
+
+	&_transparent {
+		color: #ffffff;
+		background: transparent;
+		border: 2px solid #ffffff;
+		box-shadow: 0 0 3px #ffffff;
+
+		&:hover {
+			color: #ec7979;
+			border: 2px solid #ec7979;
+		}
+
+		&:active {
+			color: #ffffff;
+			background: #ab4949;
+		}
+	}
+
+	@media (max-width: 321px) {
+		padding: 16px;
+	}
+}
+
+.user-form {
+	&__list {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__link {
+	}
+
+	&__item {
+		font-family: "Open Sans";
+		font-size: 18px;
+		line-height: 18px;
+		border-bottom: 1px solid #bdbdbd;
+		width: 100%;
+		padding: 16px 0;
+
+		&::placeholder {
+			font-size: 14px;
+			line-height: 18px;
+			color: #bdbdbd;
+		}
+
+		&_high {
+			display: block;
+			// vertical-align: top; // To remove descenders in text use va: top or d: block
+			height: 220px;
+			outline: none;
+			resize: none;
+			overflow: auto;
+			padding-top: 23px;
+		}
+	}
+}
+
+.logo {
+}
+
+@media (max-width: 321px) {
+	body.lock {
+		overflow: hidden;
+	}
+}

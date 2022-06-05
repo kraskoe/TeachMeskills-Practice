@@ -1,0 +1,44 @@
+.download {
+	padding: 110px 0 50px;
+
+	&__title {
+
+		&_white {
+			color: #fff !important;
+			&::after {
+				background: #fff !important;
+			}
+		}
+	}
+
+	&__slogan {
+		margin-bottom: 73px;
+		&_white {
+			color: #fff !important;
+		}
+	}
+
+	&__button-container {
+		text-align: center;
+	}
+
+	&__button {
+		width: 100%;
+		max-width: 370px;
+		margin: 0 auto;
+	}
+
+	@media (max-width: 1025px) {
+		padding: 100px 0 50px;
+	}
+	@media (max-width: 321px) {
+		padding: 52px 0 58px;
+		&__slogan {
+			margin-bottom: 66px;
+		}
+		&__button {
+			width: 288px;
+		}
+	}
+
+}

@@ -1,0 +1,68 @@
+.contact {
+	padding: 110px 0 50px;
+
+	&__title {
+	}
+
+	&__slogan {
+		margin-bottom: 75px;
+	}
+
+	&__form {
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__user-column {
+		flex: 0 1 49%;
+		align-self: stretch;
+	}
+
+	&__message {
+		flex: 0 1 49%;
+	}
+
+	&__button {
+		width: 100%;
+		max-width: 370px;
+		margin: 50px auto 0;
+	}
+
+	@media (max-width: 1025px) {
+		padding: 100px 0 50px;
+		&__slogan {
+			margin-bottom: 60px;
+		}
+	}
+	@media (max-width: 321px) {
+		padding: 50px 0 40px;
+
+		&__slogan {
+			margin-bottom: 50px;
+		}
+
+		&__row {
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&__button {
+			width: 100%;
+			max-width: 288px;
+			margin: 50px auto 0;
+		}
+
+		&__message {
+			flex: 0 1 40%;
+			align-self: stretch;
+			margin-top: 35px;
+		}
+
+	}
+
+}

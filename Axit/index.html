@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 	<link rel="stylesheet" href="./css/axit_icons-font.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="icon" href="./images/favicon.png">
@@ -11,6 +11,53 @@
 </head>
 
 <body>
+	<header class="header">
+		<div class="header__logo"><img src="./images/logo.svg" alt="AXIT logo"></div>
+		<div class="container header__container">
+			<nav class="header__menu">
+				<ul class="header__list">
+					<li class="header__link"><a href="#">Features</a></li>
+					<li class="header__link"><a href="#">About</a></li>
+					<li class="header__link"><a href="#">Pricing</a></li>
+					<li class="header__link"><a href="#">Reviews</a></li>
+					<li class="header__link"><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+			<div class="header__burger"><span></span></div>
+		</div>
+	</header>
+
+	<section class="banner">
+		<div class="banner__wrapper">
+			<div class="container">
+				<div class="banner__row">
+					<div class="banner__content-column">
+						<img class="logo banner__logo" src="./images/logo.svg" alt="AXIT logo">
+						<h1 class="banner__title">Modern axure template for beautiful prototypes</h1>
+						<div class="banner__slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+						<div class="banner__button-container"><a class="button button_transparent banner__button_small"
+								href="#" download>Download</a></div>
+					</div>
+					<div class="banner__form-column">
+						<div class="banner__subtitle">Try your <span class="banner__subtitle_red">free</span> trial today
+						</div>
+						<div class="user-form banner__user-form">
+							<ul class="user-form__list">
+								<li class="user-form__link"><input class="user-form__item" type="text" placeholder="Name"></li>
+								<li class="user-form__link"><input class="user-form__item" type="email" placeholder="Email">
+								</li>
+								<li class="user-form__link"><input class="user-form__item" type="password"
+										placeholder="Password">
+								</li>
+							</ul>
+						</div>
+						<button class="button button_red banner__button" type="submit">Get started</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="socials">
 		<div class="container">
 			<div class="socials__row">
@@ -38,28 +85,82 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="about">
 		<div class="container">
+			<div class="tabs">
+				<ul class="tabs__list">
+					<li class="tabs__link"><a href="#tab_1">TAB 1</a></li>
+					<li class="tabs__link"><a href="#tab_2">TAB 2</a></li>
+					<li class="tabs__link"><a href="#tab_3">TAB 3</a></li>
+				</ul>
+				<div id="tab_1" class="tabs__block">
+					<div class="tabs__content">
+						<div class="tabs__text-column">
+							<h3 class="tabs__title">Tab 1 with soft transitioning effect.</h3>
+							<div class="tabs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+								bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra
+								justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque
+								penatibus et magnis dis parturient montes.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+								bibendum laoreet.</div>
+							<a class="button button_red tabs__button" href="#">Download</a>
+						</div>
+						<div class="tabs__image-column ibg"><img src="./images/tabs/tabs-pic1.png" alt=""></div>
+					</div>
+				</div>
+				<div id="tab_2" class="tabs__block">
+					<div class="tabs__content">
+						<div class="tabs__text-column">
+							<h3 class="tabs__title">Tab 2 with soft transitioning effect.</h3>
+							<div class="tabs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+								bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra
+								justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque
+								penatibus et magnis dis parturient montes.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+								bibendum laoreet.</div>
+							<a class="button button_red tabs__button" href="#">Download</a>
+						</div>
+						<div class="tabs__image-column ibg"><img src="./images/tabs/tabs-pic1.png" alt=""></div>
+					</div>
+				</div>
+				<div id="tab_3" class="tabs__block">
+					<div class="tabs__content">
+						<div class="tabs__text-column">
+							<h3 class="tabs__title">Tab 3 with soft transitioning effect.</h3>
+							<div class="tabs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+								bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra
+								justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque
+								penatibus et magnis dis parturient montes.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+								bibendum laoreet.</div>
+							<a class="button button_red tabs__button" href="#">Download</a>
+						</div>
+						<div class="tabs__image-column ibg"><img src="./images/tabs/tabs-pic1.png" alt=""></div>
+					</div>
+				</div>
+			</div>
+
 			<h2 class="title about__title">Why this is awesome</h2>
 			<p class="slogan about__slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			<div class="flex-block about__block">
 				<div class="flex-block__row">
 					<div class="flex-block__col">
-						<div class="about__icon"><img src="images/about/about-icon_1.svg" alt=""></div>
+						<div class="about__icon"><img src="images/about/about-icon_1.svg" alt="Idea"></div>
 						<h4 class="about__caption">Thoughtful Design</h4>
 						<p class="about__desc">Lorem ipsum dolor sit amet, consectetur adipiscing
 							elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra.
 						</p>
 					</div>
 					<div class="flex-block__col">
-						<div class="about__icon"><img src="images/about/about-icon_2.svg" alt=""></div>
+						<div class="about__icon"><img src="images/about/about-icon_2.svg" alt="Keyboard"></div>
 						<h4 class="about__caption">Thoughtful Design</h4>
 						<p class="about__desc">Lorem ipsum dolor sit amet, consectetur adipiscing
 							elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra.
 						</p>
 					</div>
 					<div class="flex-block__col">
-						<div class="about__icon"><img src="images/about/about-icon_3.svg" alt=""></div>
+						<div class="about__icon"><img src="images/about/about-icon_3.svg" alt="Lightning"></div>
 						<h4 class="about__caption">Thoughtful Design</h4>
 						<p class="about__desc">Lorem ipsum dolor sit amet, consectetur adipiscing
 							elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra.
@@ -69,6 +170,7 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="tariff">
 		<div class="container">
 			<h2 class="title tariff__title">Pricing options</h2>
@@ -125,6 +227,41 @@
 		</div>
 	</section>
 
+	<section class="download ibg">
+		<img src="./images/banner/banner-bg.png" alt="Download background">
+		<div class="container">
+			<h2 class="title download__title download__title_white">Stylish axure design</h2>
+			<p class="slogan download__slogan download__slogan_white">Use the sections you need, remove the ones you don't.
+				Create gorgeous prototypes faster than ever!</p>
+			<div class="download__button-container"><a class="button button_transparent download__button" href="#"
+					download>Download</a></div>
+		</div>
+	</section>
+
+	<section class="contact">
+		<div class="container">
+			<h2 class="title contact__title">Stylish axure design</h2>
+			<p class="slogan contact__slogan">Use the sections you need, remove the ones you don't. Create gorgeous
+				prototypes faster than ever!</p>
+			<form class="contact__form" action="" method="post">
+				<div class="contact__row">
+					<div class="user-form contact__user-column">
+						<ul class="user-form__list">
+							<li class="user-form__link"><input class="user-form__item" type="text" placeholder="Name"></li>
+							<li class="user-form__link"><input class="user-form__item" type="email" placeholder="Email"></li>
+							<li class="user-form__link"><input class="user-form__item" type="password" placeholder="Password">
+							</li>
+						</ul>
+					</div>
+					<div class="contact__message">
+						<textarea class="user-form__item user-form__item_high" name="" id="" placeholder="Message"></textarea>
+					</div>
+				</div>
+				<button class="button button_red contact__button" type="submit">Send message</button>
+			</form>
+		</div>
+	</section>
+
 	<footer class="footer">
 		<div class="container">
 			<div class="footer__socials">
@@ -141,8 +278,10 @@
 			<div class="copy">© 2015 Axure Themes</div>
 		</div>
 	</footer>
-	<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="js/burger.js"></script> -->
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="js/burger.js"></script>
+	<script src="js/ibg.js"></script>
 </body>
 
 </html>
