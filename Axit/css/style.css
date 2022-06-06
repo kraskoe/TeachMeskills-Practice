@@ -693,6 +693,7 @@ a:active {
 
 .tabs {
   margin-bottom: 110px;
+  position: relative;
 }
 
 .tabs__block {
@@ -715,20 +716,16 @@ a:active {
   background: #ffffff;
 }
 
-.tabs__block:nth-child(2)::before {
+.tabs__block_1::before {
   left: -1px;
 }
 
-.tabs__block:nth-child(3)::before {
+.tabs__block_2::before {
   left: 16.667%;
 }
 
-.tabs__block:nth-child(4)::before {
+.tabs__block_3::before {
   left: 33.334%;
-}
-
-.tabs__block:target {
-  display: block;
 }
 
 .tabs__list {
@@ -742,6 +739,11 @@ a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.tabs__radio {
+  visibility: hidden;
+  position: absolute;
 }
 
 .tabs__link {
@@ -762,19 +764,17 @@ a:active {
   line-height: 20px;
   text-transform: uppercase;
   color: #333333;
-  padding: 10px;
 }
 
-.tabs__link a {
+.tabs__link label {
   position: relative;
   z-index: 2;
-}
-
-.tabs__link a:link,
-.tabs__link a:visited,
-.tabs__link a:hover,
-.tabs__link a:active {
-  color: #333333;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .tabs__content {
@@ -874,12 +874,14 @@ a:active {
     width: 100%;
   }
   .tabs__link {
-    padding: 5px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     -o-text-overflow: ellipsis;
        text-overflow: ellipsis;
+  }
+  .tabs__link label {
+    padding: 10px 5px;
   }
   .tabs__block {
     position: relative;
@@ -889,15 +891,27 @@ a:active {
   .tabs__block::before {
     width: 33.333%;
   }
-  .tabs__block:nth-child(2)::before {
+  .tabs__block_1::before {
     left: -1px;
   }
-  .tabs__block:nth-child(3)::before {
+  .tabs__block_2::before {
     left: 33.334%;
   }
-  .tabs__block:nth-child(4)::before {
+  .tabs__block_3::before {
     left: 67%;
   }
+}
+
+#tab-1:checked ~ .tabs__wrapper .tabs__block_1 {
+  display: block;
+}
+
+#tab-2:checked ~ .tabs__wrapper .tabs__block_2 {
+  display: block;
+}
+
+#tab-3:checked ~ .tabs__wrapper .tabs__block_3 {
+  display: block;
 }
 
 .tariff {
