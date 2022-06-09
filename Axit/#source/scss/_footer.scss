@@ -5,10 +5,10 @@
 		justify-content: center;
 		align-items: center;
 		padding: 35px 0 28px;
-		@media (max-width: 1025px) {
+		@media (max-width: 1024.98px) {
 			padding: 35px 0 38px;
 		}
-		@media (max-width: 321px) {
+		@media (max-width: 320.98px) {
 			padding: 35px 0 42px;
 		}
 	}
@@ -19,11 +19,11 @@
 		&:last-child {
 			padding-right: 0;
 		}
-		@media (max-width: 1025px) {
+		@media (max-width: 1024.98px) {
 			font-size: 45px;
 			padding-right: 14px;
 		}
-		@media (max-width: 321px) {
+		@media (max-width: 320.98px) {
 			font-size: 26px;
 			padding-right: 17px;
 		}
@@ -36,12 +36,12 @@
 	text-align: center;
 	color: rgba(255, 255, 255, 0.5);
 	padding-bottom: 27px;
-	@media (max-width: 1025px) {
+	@media (max-width: 1024.98px) {
 		font-size: 14px;
 		line-height: 16px;
 		padding-bottom: 30px;
 	}
-	@media (max-width: 321px) {
+	@media (max-width: 320.98px) {
 		font-size: 14px;
 		line-height: 16px;
 		padding-bottom: 45px;

@@ -38,7 +38,7 @@
 		padding: 0 10px;
 	}
 
-	@media (max-width: 1025px) {
+	@media (max-width: 1024.98px) {
 		padding: 50px 0 60px;
 
 		&__slogan {
@@ -61,7 +61,7 @@
 			line-height: 16px;
 		}
 	}
-	@media (max-width: 321px) {
+	@media (max-width: 320.98px) {
 		padding: 41px 0 60px;
 
 		&__slogan {
@@ -86,13 +86,20 @@
 }
 
 .tabs {
-	margin-bottom: 110px;
 	position: relative;
+	margin-bottom: 110px;
+
+	&__wrapper {
+		position: relative;
+	}
 
 	&__block {
-		position: relative;
-		display: none;
+		position: absolute;
+		// --- Variant without transition ---
+		// display: none;
+		opacity: 0;
 		border: 1px solid #c6cbcd;
+		// transition: all .5s ease-in-out;
 
 		&::before {
 			content: "";
@@ -127,8 +134,10 @@
 	}
 
 	&__radio {
-		visibility: hidden;
-		position: absolute;
+		display: none;
+		// --- 2nd variant ---
+		// visibility: hidden;
+		// position: absolute;
 	}
 
 	&__link {
@@ -151,6 +160,7 @@
 			text-align: center;
 			padding: 10px;
 			cursor: pointer;
+			transition: all .7s ease-in-out;
 		}
 	}
 
@@ -188,7 +198,7 @@
 		max-width: 270px;
 	}
 
-	@media (max-width: 1025px) {
+	@media (max-width: 1024.98px) {
 		margin-bottom: 100px;
 
 		&__title {
@@ -207,7 +217,7 @@
 			max-width: 232px;
 		}
 	}
-	@media (max-width: 321px) {
+	@media (max-width: 320.98px) {
 		margin-bottom: 50px;
 
 		&__title {
@@ -255,10 +265,6 @@
 		}
 
 		&__block {
-			position: relative;
-			display: none;
-			border: 1px solid #c6cbcd;
-
 			&::before {
 				width: 33.333%;
 			}
@@ -276,12 +282,12 @@
 	}
 }
 
-#tab-1:checked ~ .tabs__wrapper .tabs__block_1 {
-	display: block;
-}
-#tab-2:checked ~ .tabs__wrapper .tabs__block_2 {
-	display: block;
-}
+#tab-1:checked ~ .tabs__wrapper .tabs__block_1,
+#tab-2:checked ~ .tabs__wrapper .tabs__block_2,
 #tab-3:checked ~ .tabs__wrapper .tabs__block_3 {
-	display: block;
+	// --- Variant without transition ---
+	// display: block;
+	position: relative;
+	opacity: 1;
+	transition: all .7s ease-in-out;
 }
