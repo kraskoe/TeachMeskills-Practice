@@ -65,3 +65,21 @@ body {
   border: 2px dashed black;
   padding: 20px;
 }
+
+.flex__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex__item_1 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 500px;
+          flex: 0 1 500px;
+}
+
+.flex__item_2 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 3 500px;
+          flex: 0 3 500px;
+}

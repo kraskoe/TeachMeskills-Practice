@@ -1,0 +1,53 @@
+.header {
+	background: #fcf9f2;
+	display: grid;
+	align-items: center;
+
+	&__logo {
+		padding-right: 30px;
+	}
+
+	&__menu {
+		grid-column: 3/4;
+	}
+
+	@media (min-width: 993px) {
+		&__logo {
+			padding-right: 40px;
+		}
+
+	}
+}
+
+.menu {
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(6,auto) 1fr auto;
+		justify-items: end;
+		column-gap: 15px;
+	}
+
+	&__link {
+		font-family: "Roboto";
+		font-size: 14px;
+		line-height: 26px;
+		letter-spacing: 1.4px;
+		text-transform: uppercase;
+		color: #222222;
+
+		&_active {
+			color: #E38C00;
+		}
+	}
+
+	&__burger {
+	}
+
+	@media (min-width: 993px) {
+		&__list {
+			column-gap: 20px;
+		}
+
+	}
+
+}

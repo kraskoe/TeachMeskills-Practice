@@ -73,3 +73,18 @@ body {
 		padding: 20px;
 	}
 }
+
+.flex {
+
+	&__container {
+		display: flex;
+	}
+
+	&__item_1 {
+		flex: 0 1 500px;
+	}
+
+	&__item_2 {
+		flex: 0 3 500px;
+	}
+}
