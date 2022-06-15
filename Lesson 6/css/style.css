@@ -1,0 +1,182 @@
+/*--- Style reset ---*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, textarea, button {
+  font-size: inherit;
+}
+
+input -ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button -moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.community__container {
+  position: relative;
+  width: 1920px;
+  height: 1209px;
+  margin: 0 auto;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(236, 240, 253, 0)), color-stop(14.32%, rgba(236, 240, 253, 0.53)), color-stop(45.83%, #ecf0fd), color-stop(84.33%, rgba(236, 240, 253, 0.43)), to(rgba(236, 240, 253, 0)));
+  background: -webkit-linear-gradient(top, rgba(236, 240, 253, 0) 0%, rgba(236, 240, 253, 0.53) 14.32%, #ecf0fd 45.83%, rgba(236, 240, 253, 0.43) 84.33%, rgba(236, 240, 253, 0) 100%);
+  background: -o-linear-gradient(top, rgba(236, 240, 253, 0) 0%, rgba(236, 240, 253, 0.53) 14.32%, #ecf0fd 45.83%, rgba(236, 240, 253, 0.43) 84.33%, rgba(236, 240, 253, 0) 100%);
+  background: linear-gradient(180deg, rgba(236, 240, 253, 0) 0%, rgba(236, 240, 253, 0.53) 14.32%, #ecf0fd 45.83%, rgba(236, 240, 253, 0.43) 84.33%, rgba(236, 240, 253, 0) 100%);
+}
+
+.community__title {
+  width: calc(520 / 1920 * 100%);
+  position: absolute;
+  top: 11.4%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 70px;
+  text-align: center;
+  color: #272d4e;
+}
+
+.community__block-wrapper {
+  position: absolute;
+  z-index: 3;
+  top: 31.5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 38%;
+}
+
+.community__block-text {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 18px 52.8537px rgba(215, 228, 249, 0.5);
+          box-shadow: 0px 18px 52.8537px rgba(215, 228, 249, 0.5);
+  border-radius: 20px;
+}
+
+.community__block-text::after {
+  content: '';
+  width: calc(472/730*100%);
+  height: calc(215/391*100%);
+  display: block;
+  background: url(../images/community/dots_1.svg) center/contain no-repeat;
+  position: absolute;
+  z-index: -1;
+  top: 10%;
+  left: 55%;
+}
+
+.community__desc {
+  position: relative;
+  z-index: 4;
+  padding: calc(106 / 730 * 100%) calc(87 / 730 * 100%) calc(82 / 730 * 100%);
+  font-size: 26.7px;
+  line-height: 40px;
+  text-align: center;
+  color: #94a2b3;
+}
+
+.community__quotes {
+  position: absolute;
+  top: calc(28 / 391 * 100%);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.community__bg-block {
+  width: calc(678 / 1920 * 100%);
+  height: calc(363 / 1209 * 100%);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ffffff;
+  -webkit-box-shadow: 0px 18px 52.8537px rgba(215, 228, 249, 0.5);
+          box-shadow: 0px 18px 52.8537px rgba(215, 228, 249, 0.5);
+  border-radius: 20px;
+}
+
+.community__bg-block::after {
+  content: '';
+  display: block;
+  width: calc(618/678*100%);
+  height: calc(331/363*100%);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 20px;
+}
