@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wrapper {
+  width: 500px;
+  margin: 50px auto;
+}
+
+.wrapper-black {
+  background: #000;
+  padding: 20px;
+}
+
+.square-1 {
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+  margin: 50px;
+  -webkit-box-shadow: 0 0 2px red;
+          box-shadow: 0 0 2px red;
+  -webkit-transform: rotateZ(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotateZ(45deg);
+}
+
+.square-2 {
+  background: #a5a5bf;
+  padding: 20px;
+  border: 2px solid green;
+  text-align: justify;
+  width: 150px;
+  -webkit-box-shadow: 0 0 2px green;
+          box-shadow: 0 0 2px green;
+  -webkit-transform: rotateZ(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotateZ(45deg);
+  margin: -120px 0 0 -25px;
+}
+
+ul {
+  list-style: none;
+}
+
+.button {
+  width: 460px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.button:last-child {
+  margin-bottom: 0;
+}
+
+.button-orange {
+  background: orange;
+}
+
+.button-green {
+  background: green;
+}
+
+.button-violet {
+  background: violet;
+}
+
+.button-blue {
+  background: blue;
+}
+
+.wrapper-grey {
+  background: #f0ecec;
+  padding: 10px;
+}
+
+.wrapper-text {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #000;
+}
+
+.wrapper-text:first-child {
+  margin-bottom: 50px;
+}
+
+.text-narrow {
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.text-wide {
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.text {
+  border: 1px solid #000;
+}
+
+.block {
+  font-weight: 700;
+  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+  font-size: 14px;
+  background: #d2d2d2;
+  border: 2px solid green;
+  padding: 5px;
+  margin: 5px 5px 30px;
+}
+
+.block-scroll {
+  float: left;
+  width: 150px;
+  height: 150px;
+  overflow-y: scroll;
+}
+
+.block-hidden {
+  float: left;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.block-wide {
+  width: 300px;
+  height: 150px;
+  margin-top: 50px;
+}
+
+.clear {
+  clear: both;
+}
+
+.rounded-button {
+  display: inline-block;
+  background: #c0bfbf;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 10px 40px;
+  text-align: center;
+}

@@ -1,0 +1,50 @@
+// ---VARIABLES---
+$color_black: #000;
+$color_white: #fff;
+$color_coral: #f38281;
+$color_salad: #95e1d3;
+$color_grad_bg: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
+$maxWidth: 1510px;
+$maxWidthContainer: 1170px;
+
+// ---TEMPLATES---
+%tpl_flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// %tpl_grad_bg {
+// 	background: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
+// }
+
+// ---MIXINS---
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		// If less than container
+		#{$property}: $startSize + px;
+		@media (max-width: $maxWidthContainer) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize + px} * ((100vw - 320px) / $maxWidthContainer - 320px));
+		}
+	} @else {
+		//Default
+		#{$property}: calc(#{$minSize + px} + #{$addSize + px} * ((100vw - 320px) / $maxWidth - 320px));
+	}
+}
+
+// ---FUNCTIONS---
+@function prc($px1, $px2) {
+	$result: math.div($px1, $px2) * 100%;
+	@return $result;
+}
+
+@function em($px, $fz) {
+	$result: math.div($px, $fz) + em;
+	@return $result;
+}
+
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
