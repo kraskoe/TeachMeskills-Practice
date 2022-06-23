@@ -1,0 +1,25 @@
+mixin itemCard(imgUrl,alt,category,commodity,price)
+	.catalogue__item
+		.catalogue__picture
+			img(class= 'catalogue__img' src= imgUrl alt= alt)
+		.catalogue__desc
+			.catalogue__category= category
+			.catalogue__entry
+				.catalogue__commodity= commodity
+				.catalogue__price= price
+			button.catalogue__button= 'В корзину'
+
+mixin filterItem(summary,flag,details)
+	.catalogue__filter-item
+		details(class= "catalogue__filter-details" open)
+			if flag > 0
+				summary(class= "catalogue__filter-summary_marked").catalogue__filter-summary= summary
+			else
+				summary.catalogue__filter-summary= summary
+			each detail in details
+				input(class= "catalogue__filter-checkbox" type= "checkbox" name= `checkbox_${++counter}` id= `checkbox_${counter}` value= "true")
+				if flag == 2
+					label(class= "catalogue__filter-label_button" for=`checkbox_${counter}`)!= detail
+				else
+					label(class= "catalogue__filter-label" for=`checkbox_${counter}`)!= detail
+

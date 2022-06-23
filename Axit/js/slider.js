@@ -11,13 +11,16 @@ let width;
 // --- SLIDER MOBILE ON/OFF --- //
 
 function sliderOn () {
-	if (window.innerWidth > 320) {
+	if (window.innerWidth > 1023.98) {
 		if (!listenerFlag) {
 			return;
 		} else {
 			slider.removeEventListener('touchstart', handleTouchStart, false);
 			slider.removeEventListener('touchmove', handleTouchMove, false);
 			listenerFlag = false;
+			width = slider.offsetWidth;
+			counter = 0;
+			rollSlider();
 			return;
 		}
 	} else {

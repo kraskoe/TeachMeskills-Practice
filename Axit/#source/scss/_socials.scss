@@ -1,21 +1,21 @@
 .socials {
 	background: #f8efef;
 	padding: 20px 0 18px;
-	@media (max-width: 320.98px) {
+	@media (max-width: 1023.98px) {
 		padding: 45px 0;
 	}
 
 	&__row {
 		display: flex;
 		align-items: center;
-		@media (max-width: 320.98px) {
+		@media (max-width: 1023.98px) {
 			flex-direction: column;
 		}
 	}
 
 	&__text-column {
 		flex: 0 1 40%;
-		@media (max-width: 320.98px) {
+		@media (max-width: 1023.98px) {
 			text-align: center;
 			width: 100%;
 		}
@@ -23,7 +23,7 @@
 
 	&__icons-column {
 		flex: 0 1 60%;
-		@media (max-width: 320.98px) {
+		@media (max-width: 1023.98px) {
 			width: 100%;
 		}
 
@@ -37,12 +37,12 @@
 		text-transform: capitalize;
 		margin-bottom: 40px;
 		width: 100%;
-		@media (max-width: 1024.98px) {
+		@media (max-width: 1509.98px) {
 			font-size: 18px;
 			line-height: 25px;
 			margin-bottom: 30px;
 		}
-		@media (max-width: 320.98px) {
+		@media (max-width: 1023.98px) {
 			font-size: 18px;
 			line-height: 25px;
 			margin-bottom: 30px;
@@ -55,11 +55,11 @@
 		line-height: 21px;
 		color: #86878b;
 		width: 100%;
-		@media (max-width: 1024.98px) {
+		@media (max-width: 1509.98px) {
 			font-size: 14px;
 			line-height: 16px;
 		}
-		@media (max-width: 320.98px) {
+		@media (max-width: 1023.98px) {
 			font-size: 14px;
 			line-height: 16px;
 			margin-bottom: 32px;
@@ -91,10 +91,10 @@
 
 	&__item {
 		font-size: 70px;
-		@media (max-width: 1024.98px) {
+		@media (max-width: 1509.98px) {
 			font-size: 64px;
 		}
-		@media (max-width: 320.98px) {
+		@media (max-width: 1023.98px) {
 			font-size: 26px;
 		}
 	}

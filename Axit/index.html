@@ -12,15 +12,15 @@
 
 <body>
 	<header class="header">
-		<div class="header__logo"><img src="./images/logo.svg" alt="AXIT logo"></div>
 		<div class="container header__container">
+			<div class="header__logo"><img src="./images/logo.svg" alt="AXIT logo"></div>
 			<nav class="header__menu">
 				<ul class="header__list">
-					<li class="header__link"><a href="#">Features</a></li>
-					<li class="header__link"><a href="#">About</a></li>
-					<li class="header__link"><a href="#">Pricing</a></li>
-					<li class="header__link"><a href="#">Reviews</a></li>
-					<li class="header__link"><a href="#">Contact</a></li>
+					<li class="header__link"><a href="#features">Features</a></li>
+					<li class="header__link"><a href="#about">About</a></li>
+					<li class="header__link"><a href="#pricing">Pricing</a></li>
+					<li class="header__link"><a href="#reviews">Reviews</a></li>
+					<li class="header__link"><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
 			<div class="header__burger"><span></span></div>
@@ -88,7 +88,7 @@
 
 	<section class="about">
 		<div class="container">
-			<div class="tabs">
+			<div class="tabs" id="features">
 				<input class="tabs__radio" type="radio" name="tabs" id="tab-1" checked>
 				<input class="tabs__radio" type="radio" name="tabs" id="tab-2">
 				<input class="tabs__radio" type="radio" name="tabs" id="tab-3">
@@ -146,7 +146,7 @@
 				</div>
 			</div>
 
-			<h2 class="title about__title">Why this is awesome</h2>
+			<h2 class="title about__title" id="about">Why this is awesome</h2>
 			<p class="slogan about__slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			<div class="flex-block about__block">
 				<div class="flex-block__row">
@@ -176,7 +176,7 @@
 		</div>
 	</section>
 
-	<section class="tariff">
+	<section class="tariff" id="pricing">
 		<div class="container">
 			<h2 class="title tariff__title">Pricing options</h2>
 			<p class="slogan tariff__slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -232,7 +232,7 @@
 		</div>
 	</section>
 
-	<section class="reviews">
+	<section class="reviews" id="reviews">
 		<div class="container">
 			<h2 class="title reviews__title">What our customers are saying</h2>
 			<p class="slogan reviews__slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -289,7 +289,7 @@
 		</div>
 	</section>
 
-	<section class="contact">
+	<section class="contact" id="contact">
 		<div class="container">
 			<h2 class="title contact__title">Stylish axure design</h2>
 			<p class="slogan contact__slogan">Use the sections you need, remove the ones you don't. Create gorgeous

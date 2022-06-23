@@ -15,7 +15,7 @@
 		position: absolute;
 		z-index: 3;
 		height: 100%;
-		left: 8%;
+		left: -32px;
 		& img {
 			height: 32px;
 			position: absolute;
@@ -64,12 +64,12 @@
 		display: none;
 	}
 
-	@media (max-width: 1024.98px) {
+	@media (max-width: 1509.98px) {
 		&__logo {
 			left: 11%;
 		}
 	}
-	@media (max-width: 320.98px) {
+	@media (max-width: 1023.98px) {
 		height: 56px;
 
 		&__logo {
@@ -81,6 +81,7 @@
 
 		&__menu {
 			position: fixed;
+			z-index: 2;
 			top: -100%;
 			left: 0;
 			width: 100%;
@@ -104,6 +105,7 @@
 
 		&__burger {
 			position: absolute;
+			z-index: 2;
 			right: 19px;
 			top: 50%;
 			transform: translateY(-50%);

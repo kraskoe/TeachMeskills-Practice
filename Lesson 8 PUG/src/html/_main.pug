@@ -1,0 +1,54 @@
+include _mixins
+
+- var counter= 0
+-
+	var items= [
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+		{src: "@img/catalogue/catalogue-item_1.png", alt: "Картинка краска", cat: "Аксессуары", comm: "Краска Love ArtBox", price: "150₽"},
+		{src: "@img/catalogue/catalogue-item_2.png", alt: "Картинка единорожка", cat: "Флюид-арт", comm: "Единорожка", price: "1500₽"},
+		{src: "@img/catalogue/catalogue-item_3.png", alt: "Картинка бомбочки", cat: "Творческие наборы", comm: "Бомбочки", price: "750₽"},
+	]
+-
+	var details1= ["Наборы для творчества <span>(117)</span>", "Аксессуары для творчества <span>(52)</span>"]
+	var details2= ["Рисование <span>(33)</span>", "Абстрактная живопись <span>(7)</span>", "Плетение <span>(12)</span>", "Рукоделие <span>(23)</span>"]
+	var details3= ["Флюид-арт <span>(14)</span>", "Стринг-арт <span>(12)</span>", "Хэнд-мэйд <span>(25)</span>"]
+	var details4= ["Флюид-арт набор для творчества <span>(5)</span>", "Набор для рисования абстрактных картин <span>(3)</span>", "Украсить интерьер <span>(9)</span>", "Набор для флюид-арт <span>(4)</span>", "Все для флюид-арт <span>(5)</span>", "В подарок для творческой личности <span>(17)</span>", "Наборы для творчества стринг-арт <span>(7)</span>", "Набор для творчества картина нитками <span>(7)</span>", "Косметика <span>(11)</span>", "Ароматерапия <span>(9)</span>", "Набор для изготовления бомбочек для ванны <span>(5)</span>", "Набор для изготовления аромасаше <span>(4)</span>", "Краска акрил для рисования <span>(13)</span>", "Акриловые краски brauberg <span>(2)</span>", "Аксессуары для рисования <span>(12)</span>", "Краски для флюид-арт <span>(5)</span>", "Жидкий акрил для флюид-арт <span>(3)</span>", "Материалы для флюид-арт <span>(8)</span>", "Флюид-арт холст <span>(2)</span>", "Мольберт для рисования <span>(4)</span>"]
+	var details5= ["до 14 лет", "женщине", "на свадьбу", "в подарок", "на ДР", "подростку", "на НГ", "на корпоратив", "мужчине", "на свадьбу", "в подарок", "на ДР", "подростку", "на НГ", "на корпоратив", "мужчине", "до 14 лет", "женщине"]
+
+main.main
+	section.catalogue
+		.container
+			.catalogue__content
+				.catalogue__row
+					.catalogue__menu-column
+						.catalogue__menu-container
+							+filterItem("Категории",0,details1)
+							+filterItem("По направлению",0,details2)
+							+filterItem("По технике",0,details3)
+							+filterItem("Применение",1,details4)
+							+filterItem("Поиск по тегам",2,details5)
+						.catalogue__tubes
+							img(class= "catalogue__tube" src= "@img/paint-tube.png" alt= "Paint tube")
+					.catalogue__content-column
+						each item in items
+							+itemCard(item.src,item.alt,item.cat,item.comm,item.price)

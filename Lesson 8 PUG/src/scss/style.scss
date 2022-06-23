@@ -1,0 +1,23 @@
+// ---IMPORT---
+@import url(https://fonts.googleapis.com/css?family=Montserrat:regular,700,900);
+
+@import "_nullify_style.scss";
+@import "_nullify_buttons.scss";
+@import "_nullify_links.scss";
+
+@import "_catalogue.scss";
+// ---MAIN---
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+	width: 100%;
+}
+
+.container {
+	max-width: 1600px - 133px*2 + 30px;
+	padding: 0 15px;
+	margin: 0 auto;
+}

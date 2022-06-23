@@ -19,6 +19,7 @@
 	}
 
 	&__content-column {
+		position: relative;
 		flex: 0 1 57%;
 	}
 
@@ -54,6 +55,7 @@
 	}
 
 	&__button-container {
+		position: absolute;
 		width: 270px;
 	}
 
@@ -91,7 +93,7 @@
 		padding: 65px 50px 75px;
 	}
 
-	@media (max-width: 1024.98px) {
+	@media (max-width: 1509.98px) {
 		&__row {
 			margin-left: 11%;
 		}
@@ -140,7 +142,7 @@
 		}
 
 	}
-	@media (max-width: 320.98px) {
+	@media (max-width: 1023.98px) {
 		height: 1005px;
 
 		&__title {
@@ -149,6 +151,10 @@
 				width: 134px;
 				margin: 40px auto 30px;
 			}
+		}
+
+		&__slogan {
+			margin-bottom: 148px;
 		}
 
 		&__logo {
@@ -171,7 +177,7 @@
 		}
 
 		&__button-container {
-			margin-bottom: 56px;;
+			bottom: 56px;
 		}
 
 		&__subtitle {
