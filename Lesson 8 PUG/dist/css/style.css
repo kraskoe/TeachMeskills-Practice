@@ -143,6 +143,35 @@ a:active {
   content: url("../img/details_opened.svg");
 }
 
+.catalogue__filter-details[open] summary ~ * {
+  -webkit-animation: sweep 1s ease-in-out;
+          animation: sweep 1s ease-in-out;
+}
+
+@-webkit-keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
 .catalogue__filter-summary {
   position: relative;
   display: block;
@@ -229,6 +258,17 @@ a:active {
   letter-spacing: 0.04em;
   color: #ffb0ba;
   margin: 0 10px 10px 0;
+}
+
+.catalogue__filter-label_button:hover {
+  background: #ffa88d;
+  border: 2px solid #ffa88d;
+  color: #fff;
+}
+
+.catalogue__filter-checkbox:checked + .catalogue__filter-label_button {
+  background: #fe95a2;
+  color: #fff;
 }
 
 .catalogue__tubes {

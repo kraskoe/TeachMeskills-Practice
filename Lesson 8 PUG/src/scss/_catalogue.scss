@@ -29,10 +29,18 @@
 	}
 
 	&__filter-details {
-
 		&[open] > .catalogue__filter-summary_marked::after {
 			content: url("../img/details_opened.svg");
 		}
+
+		&[open] summary ~ * {
+			animation: sweep 1s ease-in-out;
+		}
+
+		@keyframes sweep {
+			0% {opacity: 0; margin-left: -10px}
+			100% {opacity: 1; margin-left: 0px}
+		 }
 	}
 
 	&__filter-summary {
@@ -115,6 +123,17 @@
 			letter-spacing: 0.04em;
 			color: #ffb0ba;
 			margin: 0 10px 10px 0;
+
+			&:hover {
+				background: #ffa88d;
+				border: 2px solid #ffa88d;
+				color: #fff;
+			}
+
+			.catalogue__filter-checkbox:checked + & {
+				background: #fe95a2;
+				color: #fff;
+			}
 		}
 	}
 
