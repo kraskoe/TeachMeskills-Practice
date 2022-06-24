@@ -3,6 +3,7 @@
 const slider = document.querySelector('.reviews__block');
 const sliderItems = document.querySelectorAll('.customer__col');
 const sliderLine = document.querySelector('.customer');
+const dots = document.querySelector('.customer__dots');
 
 let listenerFlag = false;
 let counter = 0;
@@ -33,9 +34,15 @@ function sliderOn () {
 	}
 }
 
+function clearTransit() {
+	dots.classList.remove('_transit');
+}
+
 // --- SLIDE LOGIC --- //
 function rollSlider () {
 	sliderLine.style.transform = 'translate(-' + counter*width + 'px)';
+	dots.classList.add('_transit');
+	setTimeout(clearTransit, 450);
 }
 
 // --- SWIPE LOGIC --- //
@@ -61,14 +68,14 @@ function handleTouchMove(event) {
 
 	if (Math.abs(xDiff) > Math.abs(yDiff)) {
 		if (xDiff > 0) {
-			console.log('right');
+			// console.log('right');
 			counter--;
 			if (counter <0) {
 				counter = sliderItems.length - 1;
 			}
 			rollSlider();
 		} else {
-			console.log('left');
+			// console.log('left');
 			counter++;
 			if (counter >= sliderItems.length) {
 				counter = 0;
@@ -76,11 +83,11 @@ function handleTouchMove(event) {
 			rollSlider();
 		}
 	} else {
-		if (yDiff > 0) {
-			console.log('down');
-		} else {
-			console.log('up');
-		}
+		// if (yDiff > 0) {
+		// 	console.log('down');
+		// } else {
+		// 	console.log('up');
+		// }
 	}
 
 	x1 = null;

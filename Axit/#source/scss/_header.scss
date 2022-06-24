@@ -37,6 +37,16 @@
 	}
 
 	&__link {
+		&:link,
+		&:visited,
+		&:hover,
+		&:active {
+			color: #ffffff;
+		}
+
+	}
+
+	&__item {
 		font-family: "Open Sans";
 		font-weight: 600;
 		font-size: 14px;
@@ -46,12 +56,6 @@
 		height: 75px;
 		width: 114px;
 		cursor: pointer;
-		& a:link,
-		a:visited,
-		a:hover,
-		a:active {
-			color: #ffffff;
-		}
 		&:hover {
 			background: #ec7979;
 		}
@@ -88,7 +92,7 @@
 			height: 100%;
 			background: #000;
 			transition: 0.5s ease-out 0.1s;
-			&.active {
+			&._active {
 				top: 56px;
 			}
 		}
@@ -133,14 +137,14 @@
 			& span {
 				top: 8px;
 			}
-			&.active span {
+			&._active span {
 				transform: scale(0);
 			}
-			&.active::before {
+			&._active::before {
 				top: 8px;
 				transform: rotate(-45deg);
 			}
-			&.active::after {
+			&._active::after {
 				top: 8px;
 				transform: rotate(45deg);
 			}
