@@ -1,0 +1,30 @@
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  background: #000;
+  margin: 0;
+  padding: 0;
+  font-family: Lato, sans-serif;
+}
+
+.container {
+  max-width: 768px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.container h1 {
+  font-size: 36px;
+  display: inline-block;
+}
+
+.container span {
+  color: #f9f929;
+  margin-left: 10px;
+  font-size: 36px;
+}
+
+/*# sourceMappingURL=index.8353e49f.css.map */
