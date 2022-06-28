@@ -1,0 +1,36 @@
+mixin menu(items)
+	nav.menu.header__menu
+		ul.menu__list
+			each value,key in items
+				li.menu__item
+					a.menu__link(data-goto= `.${key}` href= "#")= value
+					span
+
+mixin title(cls,subtitle,title,text)
+	.title(class= cls)
+		h4.title__subtitle= subtitle
+		h3.title__title= title
+		if text
+			.title__desc= text
+
+mixin cards1(pics,icon,title)
+	each pic in pics
+		.about__card
+			img.about__card-pic(src= pic)
+			.about__card-bg
+				.about__card-icon(class= icon)
+				.about__card-title= title
+				.about__card-icon_filler(class= icon)
+
+mixin cards2(cls,pics,icons,title,desc)
+	each pic in pics
+		.card(class= cls)
+			img.card__pic(src= pic)
+			.card__bg
+				.card__icons
+				each item in icons
+					.card__icon(class= item)
+				if title
+					.card__title= title
+				if desc
+					.card__desc= desc

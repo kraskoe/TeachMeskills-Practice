@@ -1,0 +1,12 @@
+-
+	var aboutCards= [
+		["@img/about/about_1.png","@img/about/about_2.png","@img/about/about_3.png"],
+		"icon-people",
+		"Super team"
+	]
+
+section.about
+	.container
+		+title("about__title","What we do","story about us","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu facilisis sed venenatis lacus. Eget sit ridiculus facilisi amet. Dis sapien ipsum enim dui fermentum viverra dolor sit. Aliquet congue sit fermentum risus feugiat.")
+		.about__cards
+			+cards1(...aboutCards)

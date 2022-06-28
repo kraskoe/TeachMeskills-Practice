@@ -1,11 +1,15 @@
 // ---VARIABLES---
-$color_black: #000;
-$color_white: #fff;
 $color_coral: #f38281;
 $color_salad: #95e1d3;
 $color_grad_bg: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
-$maxWidth: 1510px;
-$maxWidthContainer: 1170px;
+$maxWidth: 94.375rem;
+$minWidthContainer: 19.9375rem;
+$maxWidthContainer: 75.125rem;
+
+$sm: 36rem; // 576px
+$md: 48rem; // 768px
+$lg: 62rem; // 992px
+$xl: 75rem; // 1200px
 
 // ---TEMPLATES---
 %tpl_flex {
@@ -35,16 +39,16 @@ $maxWidthContainer: 1170px;
 
 // ---FUNCTIONS---
 @function prc($px1, $px2) {
-	$result: math.div($px1, $px2) * 100%;
+	$result: calc($px1 / $px2 * 100%);
 	@return $result;
 }
 
 @function em($px, $fz) {
-	$result: math.div($px, $fz) + em;
+	$result: calc($px / $fz) + em;
 	@return $result;
 }
 
 @function rem($px) {
-	$result: math.div($px, 16) + rem;
+	$result: calc($px / 16) + rem;
 	@return $result;
 }

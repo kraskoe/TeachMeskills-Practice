@@ -1,7 +1,7 @@
 "use strict"
 
 
-let menuLinks = document.querySelectorAll('.header__link[data-goto');
+let menuLinks = document.querySelectorAll('.header__link[data-goto]');
 if (menuLinks.length > 0) {
 	menuLinks.forEach(menuLink => {
 		menuLink.addEventListener("click", onMenuLinkClick);

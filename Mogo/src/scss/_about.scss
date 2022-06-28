@@ -1,0 +1,144 @@
+.about {
+	padding: rem(45) 0 rem(59);
+	&__card {
+		margin-bottom: rem(16);
+		position: relative;
+		width: 100%;
+		padding-bottom: prc(258, 288);
+		background: $color_salad;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:hover .about__card-bg {
+			opacity: 1;
+		}
+	}
+
+	&__card-bg {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: prc(83, 258);
+		background: $color_grad_bg;
+		transition: all .8s ease;
+	}
+
+	&__card-icon {
+		text-align: center;
+		flex-grow: 1;
+		font-size: rem(30);
+		color: #ffffff;
+
+		&_filler {
+			flex-grow: 1;
+			font-size: rem(30);
+			opacity: 0;
+		}
+	}
+
+	&__card-title {
+		text-align: center;
+		flex-grow: 1;
+		font-family: "Raleway";
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: prc(21, 18);
+		text-transform: uppercase;
+		color: #ffffff;
+	}
+
+	&__card-pic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+
+	}
+
+	&__title {
+	}
+
+	@media (min-width: $md) {
+
+		&__cards {
+			display: flex;
+			column-gap: rem(17);
+		}
+
+		&__card {
+			margin-bottom: 0;
+			flex: 0 1 auto;
+			padding-bottom: prc(282, 992);
+
+			&:hover .about__card-bg {
+				bottom: 6px;
+				left: -6px;
+			}
+
+			&:hover .about__card-pic {
+				opacity: 0;
+			}
+		}
+
+		&__card-bg {
+			flex-direction: column;
+			row-gap: rem(25);
+			height: 100%;
+		}
+
+		&__card-icon {
+			font-size: rem(34);
+			display: flex;
+			align-items: end;
+
+			&_filler {
+				display: none;
+			}
+		}
+
+		&__card-title {
+			font-size: rem(18);
+		}
+
+		&__card-pic {
+			opacity: 1;
+			transition: all .8s ease;
+		}
+	}
+	@media (min-width: $xl) {
+		padding: rem(60) 0 rem(106);
+
+		&__cards {
+			column-gap: rem(30);
+		}
+
+		&__card {
+
+			&:hover .about__card-bg {
+				bottom: 16px;
+				left: -16px;
+			}
+		}
+
+		&__card-bg {
+			row-gap: rem(30);
+		}
+
+		&__card-icon {
+			font-size: rem(40);
+		}
+
+		&__card-title {
+			font-size: rem(24);
+		}
+	}
+}
