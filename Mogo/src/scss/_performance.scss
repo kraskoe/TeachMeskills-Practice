@@ -1,0 +1,76 @@
+.performance {
+	background: $color_salad;
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__item {
+		text-align: center;
+		display: flex;
+		flex: 1 0 50%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 1px solid #fff;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&__counter {
+		font-weight: 700;
+		font-size: rem(48);
+		line-height: prc(56, 48);
+		color: #ffffff;
+		padding: em(24, 48) 0;
+	}
+
+	&__desc {
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: prc(21, 18);
+		color: #ffffff;
+		padding-bottom: em(13, 18);
+	}
+
+	@media (min-width: $md) {
+		&__row {
+			flex-wrap: no-wrap;
+		}
+
+		&__item {
+			flex: 1 0 auto;
+			border-bottom: none;
+			border-left: 1px solid #fff;
+
+			&:last-child {
+				border-right: 1px solid #fff;
+			}
+		}
+
+		&__counter {
+			padding: em(36, 48) 0 em(20, 48);
+		}
+
+		&__desc {
+			padding-bottom: em(35, 18);
+		}
+	}
+
+	@media (min-width: $xl) {
+		&__counter {
+			font-size: rem(64);
+			padding: em(64, 64) 0 em(20, 64);
+		}
+
+		&__desc {
+			font-size: rem(24);
+			padding-bottom: em(64, 24);
+		}
+
+	}
+
+}

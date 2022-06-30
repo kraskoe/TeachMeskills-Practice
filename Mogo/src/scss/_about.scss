@@ -11,12 +11,12 @@
 			margin-bottom: 0;
 		}
 
-		&:hover .about__card-bg {
+		&:hover .about__bg {
 			opacity: 1;
 		}
 	}
 
-	&__card-bg {
+	&__bg {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -30,7 +30,7 @@
 		transition: all .8s ease;
 	}
 
-	&__card-icon {
+	&__icon {
 		text-align: center;
 		flex-grow: 1;
 		font-size: rem(30);
@@ -43,10 +43,9 @@
 		}
 	}
 
-	&__card-title {
+	&__slogan {
 		text-align: center;
 		flex-grow: 1;
-		font-family: "Raleway";
 		font-weight: 500;
 		font-size: rem(18);
 		line-height: prc(21, 18);
@@ -54,7 +53,7 @@
 		color: #ffffff;
 	}
 
-	&__card-pic {
+	&__pic {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -79,23 +78,23 @@
 			flex: 0 1 auto;
 			padding-bottom: prc(282, 992);
 
-			&:hover .about__card-bg {
+			&:hover .about__bg {
 				bottom: 6px;
 				left: -6px;
 			}
 
-			&:hover .about__card-pic {
+			&:hover .about__pic {
 				opacity: 0;
 			}
 		}
 
-		&__card-bg {
+		&__bg {
 			flex-direction: column;
 			row-gap: rem(25);
 			height: 100%;
 		}
 
-		&__card-icon {
+		&__icon {
 			font-size: rem(34);
 			display: flex;
 			align-items: end;
@@ -105,11 +104,11 @@
 			}
 		}
 
-		&__card-title {
+		&__slogan {
 			font-size: rem(18);
 		}
 
-		&__card-pic {
+		&__pic {
 			opacity: 1;
 			transition: all .8s ease;
 		}
@@ -123,21 +122,21 @@
 
 		&__card {
 
-			&:hover .about__card-bg {
+			&:hover .about__bg {
 				bottom: 16px;
 				left: -16px;
 			}
 		}
 
-		&__card-bg {
+		&__bg {
 			row-gap: rem(30);
 		}
 
-		&__card-icon {
+		&__icon {
 			font-size: rem(40);
 		}
 
-		&__card-title {
+		&__slogan {
 			font-size: rem(24);
 		}
 	}

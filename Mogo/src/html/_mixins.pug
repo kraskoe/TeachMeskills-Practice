@@ -13,24 +13,49 @@ mixin title(cls,subtitle,title,text)
 		if text
 			.title__desc= text
 
-mixin cards1(pics,icon,title)
+mixin counters(content)
+	each item in content
+		.performance__item
+			.performance__counter= item.count
+			.performance__desc= item.desc
+
+mixin cardsAbout(pics,icon,title)
 	each pic in pics
 		.about__card
-			img.about__card-pic(src= pic)
-			.about__card-bg
-				.about__card-icon(class= icon)
-				.about__card-title= title
-				.about__card-icon_filler(class= icon)
+			img.about__pic(src= pic)
+			.about__bg
+				.about__icon(class= icon)
+				a.about__slogan(data-goto= ".team" href= "#")= title
+				.about__icon_filler(class= icon)
 
-mixin cards2(cls,pics,icons,title,desc)
-	each pic in pics
-		.card(class= cls)
-			img.card__pic(src= pic)
-			.card__bg
-				.card__icons
-				each item in icons
-					.card__icon(class= item)
-				if title
-					.card__title= title
-				if desc
-					.card__desc= desc
+mixin cardsService(items)
+	each item in items
+		.service__item
+			.service__icon(class= "icon-"+item.icon)
+			.service__column
+				.service__slogan= item.title
+				.service__desc= item.desc
+
+mixin cardsTeam(content,icons)
+	each item in content
+		.team__card
+			.team__pic
+				img.team__img(src= item.pic)
+				.team__bg
+					.team__icons
+						each icon in icons
+							a.team__link(data-goto= ".contacts" href="#")
+								img.team__icon(src= icon)
+			.team__desc
+				.team__name= item.name
+				.team__position= item.position
+
+mixin quotes(content)
+	each item in content
+		.swiper-slide
+			.quotes__slide
+				.quotes__pic
+					img.quotes__img(class= "icon-thought")
+				.quotes__col
+					.quotes__quote= item.quote
+					.quotes__author= item.author

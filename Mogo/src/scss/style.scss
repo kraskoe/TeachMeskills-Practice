@@ -5,16 +5,33 @@
 
 @import "_fonts.scss";
 
+@import "../../node_modules/swiper/swiper.scss";
+@import "../../node_modules/swiper/modules/pagination/pagination.scss";
+@import "../../node_modules/swiper/modules/navigation/navigation.scss";
+// --- Import swiper bundle CSS file
+// @import "../../node_modules/swiper/swiper-bundle";
+
 @import "_nullify_style.scss";
 @import "_nullify_buttons.scss";
 @import "_nullify_links.scss";
-@import "_service.scss";
+@import "_utils.scss";
 
 @import "_header.scss";
 @import "_banner.scss";
 @import "_about.scss";
+@import "_performance.scss";
+@import "_service.scss";
+@import "_design.scss";
+@import "_job.scss";
+@import "_quotes.scss";
+@import "_team.scss";
+@import "_tech.scss";
 
 // ---MAIN---
+body {
+	font-family: "Raleway", sans-serif;
+}
+
 body._lock {
 	overflow: hidden;
 }
@@ -25,7 +42,7 @@ body._lock {
 	max-width: $maxWidthContainer;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 1rem;
+	padding: 0 rem(15);
 }
 
 .main {
@@ -41,12 +58,12 @@ body._lock {
 		position: relative;
 		display: block;
 		text-align: center;
-		padding: rem(30) 0;
+		@include adaptive-height_sm("padding-top", 30, 15);
+		@include adaptive-height_sm("padding-bottom", 30, 15);
 	}
 
 	&__link {
 		text-align: center;
-		font-family: "Raleway";
 		font-weight: 600;
 		font-size: rem(13);
 		line-height: prc(15, 13);
@@ -75,7 +92,7 @@ body._lock {
 
 .title {
 	&__subtitle {
-		font-family: "Kaushan Script";
+		font-family: $kaushan;
 		font-size: rem(24);
 		line-height: prc(35, 24);
 		text-align: center;
@@ -84,7 +101,6 @@ body._lock {
 	}
 
 	&__title {
-		font-family: "Raleway";
 		font-weight: 900;
 		font-size: rem(24);
 		line-height: prc(28, 24);
@@ -96,14 +112,13 @@ body._lock {
 			content: "";
 			display: block;
 			margin: em(41, 24) auto em(15, 24);
-			height: 4px;
+			height: rem(4);
 			width: em(134, 24);
 			background: $color-coral;
 		}
 	}
 
 	&__desc {
-		font-family: "Raleway";
 		font-size: rem(14);
 		line-height: prc(16, 14);
 		text-align: center;
@@ -187,24 +202,42 @@ body._lock {
 	}
 }
 
-@media (max-height: rem(600)) {
-	.menu {
-		&__item {
-			padding: rem(25) 0;
+// ---SWIPER---
+.swiper-button-prev,
+.swiper-button-next {
+	display: none;
+
+	@media (min-width: $md) {
+		display: block;
+		color: #c6cbcd;
+		&::after {
+			font-size: rem(28);
+		}
+	}
+
+	@media (min-width: $xl) {
+		&::after {
+			font-size: rem(42);
 		}
 	}
 }
-@media (max-height: rem(500)) {
-	.menu {
-		&__item {
-			padding: rem(20) 0;
-		}
+
+.swiper-pagination {
+	bottom: rem(28) !important;
+
+	@media (min-width: $md) {
+		display: none;
 	}
 }
-@media (max-height: rem(400)) {
-	.menu {
-		&__item {
-			padding: rem(15) 0;
-		}
-	}
+
+.swiper-pagination-bullet {
+	height: rem(10);
+	width: rem(10);
+	background: transparent;
+	border: 2px solid #c6cbcd;
+	margin: 0 rem(10) !important;
+}
+
+.swiper-pagination-bullet-active {
+	background: #c6cbcd;
 }

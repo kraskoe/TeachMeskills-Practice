@@ -1,0 +1,133 @@
+.team {
+	padding: rem(46) 0 rem(58);
+
+	&__title {
+		margin-bottom: rem(35);
+	}
+
+	&__cards {
+	}
+
+	&__card {
+		margin-bottom: rem(30);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:hover .team__bg {
+			opacity: 1;
+			transition: all 0.8s ease;
+		}
+	}
+
+	&__pic {
+		position: relative;
+		padding-bottom: prc(236, 288);
+		margin-bottom: rem(14);
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__bg {
+		display: flex;
+		justify-content: end;
+		align-items: end;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: all 0.8s ease;
+	}
+
+	&__icons {
+		height: prc(42, 236);
+	}
+
+	&__icon {
+		height: 100%;
+		margin-left: 1px;
+	}
+
+	&__desc {
+		text-align: center;
+	}
+
+	&__name {
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: prc(21, 18);
+		text-transform: uppercase;
+		color: #2d3033;
+		margin-bottom: rem(15);
+	}
+
+	&__position {
+		font-size: rem(14);
+		line-height: prc(16, 14);
+		text-transform: uppercase;
+		color: #2d3033;
+	}
+
+	@media (min-width: $md) {
+		padding: rem(75) 0 rem(58);
+
+		&__title {
+			margin-bottom: rem(85);
+		}
+
+		&__cards {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__card {
+			margin-bottom: 0;
+			flex: 0 0 prc(316, 994);
+
+			&:hover .team__bg {
+				top: -6px;
+				left: -6px;
+			}
+		}
+
+		&__pic {
+			padding-bottom: prc(427, 316);
+		}
+
+		&__bg {
+			background: $color_grad_bg;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__icons {
+			height: 10%;
+		}
+	}
+
+	@media (min-width: $lg) {
+		padding: rem(100) 0 rem(84);
+
+		&__title {
+			margin-bottom: rem(96);
+		}
+
+		&__card {
+
+			&:hover .team__bg {
+				top: -16px;
+				left: -16px;
+			}
+		}
+	}
+}

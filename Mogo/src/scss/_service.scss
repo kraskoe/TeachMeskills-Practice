@@ -1,54 +1,77 @@
-// ---VARIABLES---
-$color_coral: #f38281;
-$color_salad: #95e1d3;
-$color_grad_bg: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
-$maxWidth: 94.375rem;
-$minWidthContainer: 19.9375rem;
-$maxWidthContainer: 75.125rem;
+.service {
+	padding: rem(45) 0 rem(58);
 
-$sm: 36rem; // 576px
-$md: 48rem; // 768px
-$lg: 62rem; // 992px
-$xl: 75rem; // 1200px
-
-// ---TEMPLATES---
-%tpl_flex {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-// %tpl_grad_bg {
-// 	background: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
-// }
-
-// ---MIXINS---
-@mixin adaptive-value($property, $startSize, $minSize, $type) {
-	$addSize: $startSize - $minSize;
-	@if $type==1 {
-		// If less than container
-		#{$property}: $startSize + px;
-		@media (max-width: $maxWidthContainer) {
-			#{$property}: calc(#{$minSize + px} + #{$addSize + px} * ((100vw - 320px) / $maxWidthContainer - 320px));
-		}
-	} @else {
-		//Default
-		#{$property}: calc(#{$minSize + px} + #{$addSize + px} * ((100vw - 320px) / $maxWidth - 320px));
+	&__title {
+		margin-bottom: rem(66);
 	}
-}
 
-// ---FUNCTIONS---
-@function prc($px1, $px2) {
-	$result: calc($px1 / $px2 * 100%);
-	@return $result;
-}
+	&__block {
+		display: grid;
+		justify-content: center;
+		gap: rem(36);
+	}
 
-@function em($px, $fz) {
-	$result: calc($px / $fz) + em;
-	@return $result;
-}
+	&__item {
+		display: flex;
+		gap: rem(20);
+	}
 
-@function rem($px) {
-	$result: calc($px / 16) + rem;
-	@return $result;
+	&__icon {
+		font-size: rem(57);
+		color: $color_salad;
+	}
+
+	&__column {
+	}
+
+	&__slogan {
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: prc(21, 18);
+		color: #2d3033;
+		text-transform: uppercase;
+		padding: em(17,18) 0;
+	}
+
+	&__desc {
+		font-size: rem(14);
+		line-height: prc(16, 14);
+		color: #2d3033;
+	}
+
+	@media (min-width: $md) {
+		padding: rem(46) 0 rem(58);
+
+		&__block {
+			grid-template: repeat(2,1fr)/repeat(3,1fr);
+			row-gap: rem(58);
+			column-gap: rem(25);
+		}
+	}
+
+	@media (min-width: $xl) {
+		padding: rem(60) 0 rem(90);
+
+		&__block {
+			row-gap: rem(140);
+			column-gap: rem(30);
+		}
+
+		&__item {
+			gap: rem(30);
+		}
+
+		&__icon {
+			font-size: rem(70);
+		}
+
+		&__slogan {
+			font-size: rem(24);
+		}
+
+		&__desc {
+			font-size: rem(18);
+		}
+
+	}
 }

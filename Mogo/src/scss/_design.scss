@@ -1,0 +1,78 @@
+.design {
+	background: url("../img/design/design_bg.png") center / cover no-repeat;
+	box-shadow: inset 0 0 0 50vw rgba(255, 255, 255, 0.8);
+	padding: rem(63) 0 rem(25);
+	&__title {
+		padding-bottom: rem(36);
+		& h4 {
+			font-size: rem(30);
+		}
+
+		& h3 {
+			font-size: rem(36);
+		}
+	}
+
+	&__picture {
+		position: relative;
+		padding-bottom: prc(219, 286);
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		&_positioned {
+			position: absolute;
+			bottom: prc(-54, 219);
+			right: prc(29, 286);
+			width: prc(85, 286);
+			height: prc(175, 219);
+		}
+	}
+
+	@media (min-width: $md) {
+		padding: rem(38) 0;
+
+		&__title {
+			padding-bottom: rem(40);
+			& h4 {
+				font-size: rem(24);
+			}
+
+			& h3 {
+				font-size: rem(24);
+			}
+		}
+
+		&__picture {
+			width: 50%;
+			margin: 0 auto;
+			padding-bottom: prc(356, 994);
+		}
+
+		&__img_positioned {
+			bottom: prc(-67, 356);
+			right: prc(-30, 562);
+		}
+	}
+
+	@media (min-width: $xl) {
+		padding: rem(60) 0;
+
+		&__title {
+			padding-bottom: rem(60);
+			& h4 {
+				font-size: rem(30);
+			}
+
+			& h3 {
+				font-size: rem(36);
+			}
+		}
+	}
+}
