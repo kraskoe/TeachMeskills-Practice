@@ -99,3 +99,10 @@ mixin instagram(count)
 	-for (var i = 1; i <= count; i++)
 		.footer__grid-item
 			img.footer__grid-img(src= `@img/footer/c_instagram_${i}.png`)
+
+mixin jobs(items)
+	each item,key in items
+		.job__item
+			input.job__radio(id= `accordeon_${key + 1}` type= "radio" name= "job")
+			label.job__label(class= item.icon for= `accordeon_${key + 1}`)= item.title
+			.job__content= item.content
