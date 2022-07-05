@@ -9,10 +9,14 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 // import styles bundle
 // import 'swiper/css/bundle';
 // import 'swiper/scss';
+// import 'swiper/scss/autoplay';
 
-const swiper = new Swiper('.quotes__slider', {
+const swiper = new Swiper('.swiper', {
 	modules: [Navigation, Pagination],
 	loop: true,
+	// autoplay: {
+	// 	delay: 1000,
+	//  },
 
 	pagination: {
 		el: '.swiper-pagination',

@@ -1,0 +1,412 @@
+.footer {
+	background: #f8f8f8;
+	padding-top: rem(52);
+
+	&__block {
+	}
+
+	&__socials {
+		text-align: center;
+		margin-bottom: rem(24);
+	}
+
+	&__logo {
+		width: rem(96);
+		margin-bottom: rem(20);
+		// background-color: #c6cbcd;
+		// mask-image: url("../img/logo.svg");
+		// -webkit-mask-image: url("../img/logo.svg");
+	}
+
+	&__desc {
+		font-size: rem(14);
+		line-height: prc(16, 14);
+		color: #c6cbcd;
+		margin-bottom: rem(20);
+	}
+
+	&__followers {
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: prc(30, 14);
+		text-transform: uppercase;
+		padding-bottom: rem(5);
+		border-bottom: 1px solid #c6cbcd;
+		margin-bottom: rem(6);
+
+		& span {
+			font-size: rem(24);
+			line-height: prc(30, 24);
+		}
+
+		& i {
+			font-style: italic;
+			font-weight: 400;
+		}
+	}
+
+	&__socials-row {
+		display: flex;
+		gap: rem(10);
+		justify-content: end;
+		margin-bottom: rem(31);
+	}
+
+	&__follow {
+		flex: 1 0 auto;
+		text-align: left;
+		font-style: italic;
+		font-size: rem(12);
+		line-height: prc(14, 12);
+		color: #c6cbcd;
+	}
+
+	&__socnet {
+		font-size: rem(16);
+		color: $color_salad;
+	}
+
+	&__input-email {
+		display: block;
+		width: 100%;
+		background: #ffffff;
+		border: 1px solid #c6cbcd;
+		padding: rem(11) 0 rem(11) rem(27);
+		font-family: "Raleway";
+		font-size: rem(16);
+		line-height: rem(16);
+		margin-bottom: rem(24);
+		transition: all 0.5s ease;
+
+		&:focus {
+			box-shadow: inset 0 0 rem(5) rem(1) #c6cbcd;
+		}
+
+		&::placeholder {
+			font-size: rem(14);
+			line-height: prc(16, 14);
+			color: #c6cbcd;
+			// padding-left: rem(27);
+		}
+	}
+
+	&__input-submit {
+		display: block;
+		width: 100%;
+		padding: rem(12) 0;
+		background: $color_salad;
+		font-family: "Raleway";
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: prc(14, 14);
+		text-align: center;
+		text-transform: uppercase;
+		color: #ffffff;
+		transition: background .5s ease;
+
+		&:hover {
+			background: #87d2c4;
+		}
+
+		&:active {
+			background: #5c958a;
+		}
+	}
+
+	&__blog {
+		margin-bottom: rem(24);
+	}
+
+	&__subtitle {
+		text-align: center;
+		margin-bottom: rem(24);
+	}
+
+	&__card {
+		display: flex;
+		gap: rem(14);
+		margin-bottom: rem(14);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__pic {
+		position: relative;
+		flex: 1 0 prc(83, 290);
+		padding-bottom: prc(71, 289);
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&__col {
+	}
+
+	&__topic {
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: prc(16, 14);
+		text-transform: uppercase;
+		margin-bottom: rem(4);
+	}
+
+	&__date {
+		font-size: rem(12);
+		line-height: prc(14, 12);
+	}
+
+	&__instagram {
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: rem(2);
+		margin-bottom: rem(32);
+	}
+
+	&__grid-item {
+		position: relative;
+		width: 100%;
+		padding-bottom: 100%;
+	}
+
+	&__grid-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__link {
+		font-size: rem(12);
+		line-height: prc(14, 12);
+		text-decoration-line: underline;
+		text-transform: uppercase;
+		color: #2d3033;
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin-bottom: rem(32);
+
+		&:link,
+		&:visited,
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration-line: underline;
+		}
+	}
+
+	&__copy {
+		font-weight: 700;
+		font-size: rem(13);
+		line-height: prc(15, 13);
+		text-align: center;
+		text-transform: uppercase;
+		color: #2d3033;
+		border-top: 1px solid #c6cbcd;
+		padding: rem(7) 0;
+	}
+
+	@media (min-width: $md) {
+		&__block {
+			margin-bottom: rem(37);
+			display: flex;
+			gap: prc(20, 994);
+		}
+
+		&__socials {
+			text-align: left;
+			margin-bottom: 0;
+			flex-basis: prc(317, 994);
+		}
+
+		&__logo {
+			width: rem(96);
+			margin-bottom: rem(34);
+		}
+
+		&__desc {
+			margin-bottom: rem(25);
+		}
+
+		&__followers {
+			padding-bottom: rem(10);
+			margin-bottom: rem(7);
+		}
+
+		&__socials-row {
+			gap: rem(15);
+		}
+
+		.footer__form {
+			display: flex;
+		}
+
+		&__input-email {
+			flex-basis: prc(171, 317);
+			padding: rem(11) 0 rem(11) rem(33);
+			margin-bottom: 0;
+		}
+
+		&__input-submit {
+			flex-basis: prc(146, 317);
+		}
+
+		&__blog {
+			margin-bottom: 0;
+			flex-basis: prc(402, 994);
+		}
+
+		&__subtitle {
+			text-align: left;
+		}
+
+		&__instagram {
+			flex-basis: prc(233, 994);
+		}
+
+		&__card {
+			gap: prc(20, 402);
+		}
+
+		&__pic {
+			flex: 1 0 prc(115, 402);
+			padding-bottom: prc(71, 402);
+		}
+
+		&__col {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&__topic {
+			margin-bottom: rem(10);
+		}
+
+		&__grid {
+			grid-template-columns: repeat(auto-fit, minmax(rem(68), 1fr));
+			column-gap: rem(2);
+			margin-bottom: rem(12);
+		}
+
+		&__link {
+			text-align: left;
+			margin-bottom: 0;
+		}
+
+		&__copy {
+			padding: rem(16) 0;
+		}
+	}
+
+	@media (min-width: $xl) {
+		padding-top: rem(78);
+
+		&__block {
+			margin-bottom: rem(42);
+		}
+
+		&__logo {
+			width: rem(141);
+			margin-bottom: rem(43);
+		}
+
+		&__desc {
+			font-size: rem(18);
+			margin-bottom: rem(44);
+		}
+
+		&__followers {
+			font-size: rem(18);
+			padding-bottom: rem(10);
+			margin-bottom: rem(10);
+
+			& span {
+				font-size: rem(36);
+			}
+		}
+
+		&__socials-row {
+			gap: rem(11);
+			margin-bottom: rem(46);
+		}
+
+		&__follow {
+			font-size: rem(13);
+		}
+
+		&__socnet {
+			font-size: rem(24);
+		}
+
+		&__input-email {
+			flex-basis: prc(234, 370);
+			padding: rem(17) 0 rem(17) rem(17);
+			font-size: rem(20);
+			margin-bottom: 0;
+
+			&::placeholder {
+				font-size: rem(18);
+				padding-left: rem(56);
+			}
+		}
+
+		&__input-submit {
+			flex-basis: prc(136, 370);
+			font-size: rem(18);
+		}
+
+		&__subtitle {
+			margin-bottom: rem(35);
+		}
+
+		&__card {
+			gap: rem(30);
+			margin-bottom: rem(20);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&__pic {
+			flex: 1 0 prc(170, 470);
+			padding-bottom: prc(105, 470);
+		}
+
+		&__topic {
+			font-size: rem(18);
+			margin-bottom: rem(10);
+		}
+
+		&__date {
+			font-size: rem(13);
+		}
+
+		&__grid {
+			margin-bottom: rem(39);
+		}
+
+		&__link {
+			font-size: rem(13);
+		}
+
+		&__copy {
+			font-size: rem(13);
+			padding: rem(17) 0;
+		}
+	}
+}

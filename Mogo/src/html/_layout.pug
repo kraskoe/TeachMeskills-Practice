@@ -9,12 +9,20 @@ html(lang="en")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		block title
 			title Document
+
 		block favicon
+
 		block style
 			link(rel="stylesheet", href="css/style.min.css")
+
 	body
-		include _header
-		include _main
-		include _footer
+		block header
+			include _header
+
+		block main
+
+		block footer
+			include _footer
+
 		block script
 			script(src="js/app.min.js")

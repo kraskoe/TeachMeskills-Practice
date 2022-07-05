@@ -25,18 +25,12 @@
 	}
 
 	&__slogan {
-		font-weight: 700;
-		font-size: rem(18);
-		line-height: prc(21, 18);
-		color: #2d3033;
-		text-transform: uppercase;
 		padding: em(17,18) 0;
 	}
 
 	&__desc {
 		font-size: rem(14);
 		line-height: prc(16, 14);
-		color: #2d3033;
 	}
 
 	@media (min-width: $md) {
@@ -63,10 +57,6 @@
 
 		&__icon {
 			font-size: rem(70);
-		}
-
-		&__slogan {
-			font-size: rem(24);
 		}
 
 		&__desc {

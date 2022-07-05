@@ -33,7 +33,7 @@ mixin cardsService(items)
 		.service__item
 			.service__icon(class= "icon-"+item.icon)
 			.service__column
-				.service__slogan= item.title
+				h5.subtitle.service__slogan= item.title
 				.service__desc= item.desc
 
 mixin cardsTeam(content,icons)
@@ -47,15 +47,55 @@ mixin cardsTeam(content,icons)
 							a.team__link(data-goto= ".contacts" href="#")
 								img.team__icon(src= icon)
 			.team__desc
-				.team__name= item.name
+				h5.subtitle.team__name= item.name
 				.team__position= item.position
 
-mixin quotes(content)
+mixin quotes(content,flag)
 	each item in content
 		.swiper-slide
-			.quotes__slide
-				.quotes__pic
-					img.quotes__img(class= "icon-thought")
-				.quotes__col
-					.quotes__quote= item.quote
-					.quotes__author= item.author
+			.quote__slide
+				.quote__pic
+					if flag
+						img.quote__img.quote__img_visible(src= item.image)
+					else
+						img.quote__img(src= item.image)
+				.quote__col
+					.quote__quote= item.quote
+					.quote__author= item.author
+
+mixin gallery(count)
+	-for (var i = 1; i <= count; i++)
+		.work__pic
+			img.work__img(src= `@img/work/work_${i}.png`)
+			.work__bg
+				.work__icon(class= "icon-trophy")
+				a.work__subtitle(data-goto= ".design" href= "#")= "creatively design"
+				.work__slogan= "Lorem ipsum dolor sit"
+
+mixin reviews(items)
+	each item in items
+		.reviews__card
+			.reviews__pic
+				img.reviews__img(src= item.image)
+			.reviews__row
+				h5.subtitle.reviews__name= item.name
+				.reviews__position= item.position
+				.reviews__review Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis proin varius vitae leo eget tincidunt duis amet. Et amet dis vel imperdiet volutpat mauris est leo cursus.
+
+mixin socials(items)
+	each item in items
+		a.footer__socnet(class= item href= "#")
+
+mixin blogs(count)
+	-for (var i = 1; i <= count; i++)
+		.footer__card
+			.footer__pic
+				img.footer__img(src= `@img/footer/c_blog_${i}.png`)
+			.footer__col
+				.footer__topic Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				.footer__date jan.9.22.15
+
+mixin instagram(count)
+	-for (var i = 1; i <= count; i++)
+		.footer__grid-item
+			img.footer__grid-img(src= `@img/footer/c_instagram_${i}.png`)

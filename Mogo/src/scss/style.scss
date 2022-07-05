@@ -26,10 +26,17 @@
 @import "_quotes.scss";
 @import "_team.scss";
 @import "_tech.scss";
+@import "_work.scss";
+@import "_statements.scss";
+@import "_reviews.scss";
+@import "_blog.scss";
+@import "_contacts.scss";
+@import "_footer.scss";
 
 // ---MAIN---
 body {
 	font-family: "Raleway", sans-serif;
+	color: #2d3033;
 }
 
 body._lock {
@@ -96,7 +103,6 @@ body._lock {
 		font-size: rem(24);
 		line-height: prc(35, 24);
 		text-align: center;
-		color: #2d3033;
 		margin-bottom: em(38, 24);
 	}
 
@@ -106,7 +112,6 @@ body._lock {
 		line-height: prc(28, 24);
 		text-align: center;
 		text-transform: uppercase;
-		color: #2d3033;
 
 		&::after {
 			content: "";
@@ -198,6 +203,131 @@ body._lock {
 		&__desc {
 			font-size: rem(18);
 			margin-bottom: em(37, 18);
+		}
+	}
+}
+
+.subtitle {
+	font-weight: 700;
+	font-size: rem(18);
+	line-height: prc(21, 18);
+	text-transform: uppercase;
+
+	@media (min-width: $xl) {
+		font-size: rem(24);
+	}
+}
+
+.quote {
+
+	&__slide {
+	}
+
+	&__pic {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+
+	&__img {
+		display: none;
+		width: rem(115);
+		height: rem(115);
+
+		&_visible{
+			margin-top: rem(58);
+			display: block;
+			border-radius: 50%;
+			overflow: hidden;
+		}
+	}
+
+	&__col {
+	}
+
+	&__quote {
+		font-style: italic;
+		font-weight: 500;
+		font-size: rem(14);
+		line-height: prc(16, 14);
+		color: #a9afb1;
+		margin: rem(30) 0;
+	}
+
+	&__author {
+		font-family: "Kaushan Script";
+		font-size: rem(18);
+		line-height: prc(26, 18);
+		color: #000000;
+		position: relative;
+		padding-left: rem(85);
+		margin-bottom: rem(60);
+
+		&::before {
+			content: "";
+			display: block;
+			height: rem(4);
+			width: rem(48);
+			background: $color_coral;
+			position: absolute;
+			top: 40%;
+			left: 0;
+		}
+	}
+
+	@media (min-width: $md) {
+		&__slide {
+			display: flex;
+			padding: rem(28) prc(100, 994);
+		}
+
+		&__img {
+			display: block;
+			width: rem(115);
+			height: rem(115);
+
+			&_visible{
+				margin-top: 0;
+			}
+		}
+
+		&__col {
+			margin-left: rem(34);
+		}
+
+		&__quote {
+			font-size: rem(18);
+			margin: 0 0 rem(14);
+		}
+
+		&__author {
+			font-size: rem(24);
+			margin-bottom: 0;
+		}
+	}
+
+	@media (min-width: $xl) {
+		&__slide {
+			padding: rem(42) prc(100, 1024);
+		}
+
+		&__img {
+			width: rem(170);
+			height: rem(170);
+		}
+		&__quote {
+			font-size: rem(24);
+			margin: rem(42) 0 rem(21);
+		}
+
+		&__author {
+			font-size: rem(30);
+			padding-left: rem(126);
+			margin-bottom: rem(42);
+
+			&::before {
+				width: rem(70);
+			}
 		}
 	}
 }

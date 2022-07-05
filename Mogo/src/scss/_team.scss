@@ -17,7 +17,10 @@
 
 		&:hover .team__bg {
 			opacity: 1;
-			transition: all 0.8s ease;
+		}
+
+		&:hover .team__icons {
+			transform: scale(1);
 		}
 	}
 
@@ -51,6 +54,8 @@
 
 	&__icons {
 		height: prc(42, 236);
+		transform: scale(0);
+		transition: all 0.8s ease;
 	}
 
 	&__icon {
@@ -63,11 +68,6 @@
 	}
 
 	&__name {
-		font-weight: 700;
-		font-size: rem(18);
-		line-height: prc(21, 18);
-		text-transform: uppercase;
-		color: #2d3033;
 		margin-bottom: rem(15);
 	}
 
@@ -75,7 +75,6 @@
 		font-size: rem(14);
 		line-height: prc(16, 14);
 		text-transform: uppercase;
-		color: #2d3033;
 	}
 
 	@media (min-width: $md) {
@@ -115,7 +114,7 @@
 		}
 	}
 
-	@media (min-width: $lg) {
+	@media (min-width: $xl) {
 		padding: rem(100) 0 rem(84);
 
 		&__title {
@@ -128,6 +127,10 @@
 				top: -16px;
 				left: -16px;
 			}
+		}
+
+		&__position {
+			font-size: rem(18);
 		}
 	}
 }

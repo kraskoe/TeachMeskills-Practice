@@ -4,14 +4,14 @@
 		service: "Service",
 		work: "Work",
 		blog: "Blog",
-		contact: "Contact"
+		contacts: "Contact",
 	}
 
 -
 	var aboutCards= [
 		["@img/about/about_1.png","@img/about/about_2.png","@img/about/about_3.png"],
 		"icon-people",
-		"Super team"
+		"Super team",
 	]
 
 -
@@ -20,7 +20,7 @@
 		{count: 123, desc: "Lorem ipsum"},
 		{count: 15, desc: "Lorem ipsum"},
 		{count: 99, desc: "Lorem ipsum"},
-		{count: 24, desc: "Lorem ipsum"}
+		{count: 24, desc: "Lorem ipsum"},
 	]
 
 -
@@ -30,14 +30,14 @@
 		{icon: "sword",title: "creativity", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 		{icon: "map",title: "seo", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 		{icon: "css",title: "css/html", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-		{icon: "aim",title: "digital", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+		{icon: "aim",title: "digital", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 	]
 
 -
 	var teamCards= [
 		{pic: "@img/team/team_1.png", name: "Kadin Dias", position: "founder, ceo"},
 		{pic: "@img/team/team_2.png", name: "Zain Calzoni", position: "designer"},
-		{pic: "@img/team/team_3.png", name: "Charlie George", position: "photographer"}
+		{pic: "@img/team/team_3.png", name: "Charlie George", position: "photographer"},
 	]
 
 -
@@ -45,14 +45,43 @@
 		"@img/b_facebook.png",
 		"@img/b_twitter.png",
 		"@img/b_pinterest.png",
-		"@img/b_instagram.png"
+		"@img/b_instagram.png",
 	]
 
 -
 	var quotes= [
-		{quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "John Doe"},
-		{quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Don Joe"},
-		{quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Joe Donnahue"},
-		{quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Jonnie Deppie"},
-		{quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Donny Jo"}
+		{image: "@img/quotes/quote.svg", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "John Doe"},
+		{image: "@img/quotes/quote.svg", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Don Joe"},
+		{image: "@img/quotes/quote.svg", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Joe Donnahue"},
+		{image: "@img/quotes/quote.svg", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Jonnie Deppie"},
+		{image: "@img/quotes/quote.svg", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Donny Jo"},
+	]
+
+-
+	var statements= [
+		{image: "@img/statements/statement_1.png", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "James Philips"},
+		{image: "@img/statements/statement_2.png", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Ruth Woods"},
+		{image: "@img/statements/statement_3.png", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Timothy Reed"},
+		{image: "@img/statements/statement_4.png", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Victoria Vladez"},
+		{image: "@img/statements/statement_5.png", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.", author: "Beverly Little"},
+	]
+
+-
+	var reviews= [
+		{image: "@img/reviews/review_1.png", name: "Phillip Culhane", position: "photographer"},
+		{image: "@img/reviews/review_2.png", name: "Paityn Press", position: "photographer"},
+		{image: "@img/reviews/review_3.png", name: "Dulce Gouse", position: "photographer"},
+		{image: "@img/reviews/review_4.png", name: "Zaire Schleifer", position: "photographer"},
+	]
+
+-
+	var socials= [
+		"icon-s_facebook",
+		"icon-s_twitter",
+		"icon-s_instagram",
+		"icon-s_pinterest",
+		"icon-s_linkedin",
+		"icon-s_youtube",
+		"icon-s_dribble",
+		"icon-s_tiktok",
 	]

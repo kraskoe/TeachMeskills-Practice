@@ -50,7 +50,7 @@
 			content: "";
 			display: block;
 			height: rem(4);
-			width: em(134,48);
+			width: em(134, 48);
 			margin: 0 auto;
 			@include adaptive-height_sm("margin-top", 67, 10);
 			background: #fff;
@@ -62,7 +62,7 @@
 		align-items: start;
 		flex-grow: 1;
 		width: 100%;
-		max-width: em(318,16);
+		max-width: em(318, 16);
 		margin: 0 auto;
 	}
 
@@ -80,6 +80,15 @@
 		line-height: prc(21, 18);
 		text-transform: uppercase;
 		color: #ffffff;
+
+		&:hover {
+			color: #e4be8d;
+			background: #fff;
+		}
+
+		&:active {
+			border: rem(4) solid #e4be8d;
+		}
 	}
 
 	&__menu {
@@ -88,11 +97,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		column-gap: em(20,16);
+		column-gap: em(20, 16);
 	}
 
 	&__menu-item {
-		padding: em(15,16) 0;
+		padding: em(15, 16) 0;
 		flex: 1 1 prc(57, 320);
 		border-top: rem(4) solid #f9efcf;
 
@@ -120,7 +129,7 @@
 			// font-size: rem(96);
 
 			&::after {
-				width: em(115,96);
+				width: em(115, 96);
 				@include adaptive-height_md("margin-top", 38, 10);
 				// margin-top: em(38,96);
 			}
@@ -162,13 +171,13 @@
 			@include adaptive-height_lg("font-size", 144, 40);
 
 			&::after {
-				width: em(170,144);
-				margin-top: em(54,144);
+				width: em(170, 144);
+				margin-top: em(54, 144);
 			}
 		}
 
 		&__button-container {
-			max-width: em(370,16);
+			max-width: em(370, 16);
 		}
 
 		&__button {
@@ -182,12 +191,11 @@
 		}
 
 		&__menu {
-			column-gap: em(30,16);
+			column-gap: em(30, 16);
 		}
 
 		&__menu-item {
-			padding: em(20,16) 0;
+			padding: em(20, 16) 0;
 		}
 	}
-
 }
