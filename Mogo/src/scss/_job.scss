@@ -1,26 +1,207 @@
 .job {
+	padding: rem(67) 0 rem(31);
 
 	&__title {
+		margin-bottom: rem(47);
 	}
 
 	&__block {
 	}
 
 	&__pic {
+		position: relative;
+		padding-bottom: prc(142, 288);
+		margin-bottom: rem(29);
 	}
 
 	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	&__item {
+		margin-bottom: rem(19);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	&__radio {
+		display: none;
+
+		&:checked + .job__label {
+			&::after {
+				transform: rotateX(180deg);
+			}
+		}
+
+		&:checked ~ .job__content-wrapper {
+			position: static;
+			height: rem(138);
+			padding: rem(9) rem(21);
+			border: 1px solid #c6cbcd;
+			border-top: none;
+			// opacity: 1;
+			// transform: scaleY(1);
+			// transition: all 0.5s linear;
+
+			@media (min-width: $md) {
+				padding: rem(21);
+			}
+
+			@media (min-width: $xl) {
+				padding: rem(22);
+				height: rem(163);
+			}
+		}
 	}
 
 	&__label {
+		display: block;
+		position: relative;
+		padding: em(21, 14) em(50, 14) em(21, 14) em(85, 14);
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: prc(16, 14);
+		text-transform: uppercase;
+		color: #2d3033;
+		border: 1px solid #c6cbcd;
+
+		&::before {
+			font-size: rem(36);
+			color: $color_salad;
+			position: absolute;
+			left: rem(15);
+		}
+
+		&::after {
+			content: url(../img/job/arrow_down.svg);
+			position: absolute;
+			right: rem(10);
+			transition: all 0.5s linear;
+		}
+	}
+
+	&__content-wrapper {
+		height: 0;
+		transition: all 0.5s linear;
+		// border: 0px solid #c6cbcd;
+		// padding: rem(9) rem(21);
+		// border-top: none;
+		// transform-origin: top;
+		// transform: scaleY(0);
+		// opacity: 0;
+		// position: absolute;
+		// height: rem(138);
 	}
 
 	&__content {
+		font-size: rem(13);
+		line-height: prc(15, 13);
+		color: #2d3033;
+		overflow-y: auto;
+		height: 100%;
+		padding-right: rem(45);
+
+		// Firefox
+		& {
+			scrollbar-width: thin;
+			scrollbar-color: $color_salad #f5f5f5;
+		}
+
+		// Chrome, Edge, Safari
+		&::-webkit-scrollbar {
+			width: rem(6);
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #f5f5f5;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $color_salad;
+		}
+	}
+
+	@media (min-width: $md) {
+		padding: rem(101) 0 rem(88);
+
+		&__title {
+			margin-bottom: rem(72);
+		}
+
+		&__block {
+			display: flex;
+			gap: prc(20, 994);
+		}
+
+		&__pic {
+			flex: 0 0 prc(486, 994);
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+
+		&__item {
+			margin-bottom: rem(18);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&__label {
+			font-size: rem(18);
+		}
+
+		&__content-wrapper {
+			// padding: rem(21);
+		}
+
+		&__content {
+			font-size: rem(14);
+		}
+	}
+
+	@media (min-width: $xl) {
+		padding: rem(62) 0 rem(114);
+
+		&__title {
+			margin-bottom: rem(79);
+		}
+
+		&__block {
+			gap: prc(30, 1170);
+		}
+
+		&__pic {
+			flex: 0 0 prc(570, 1170);
+		}
+
+		&__item {
+			margin-bottom: rem(22);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&__label {
+			font-size: rem(24);
+		}
+
+		&__content-wrapper {
+			// padding: rem(22);
+			// height: rem(163);
+		}
+
+		&__content {
+			font-size: rem(18);
+			padding-right: rem(50);
+		}
 	}
 }

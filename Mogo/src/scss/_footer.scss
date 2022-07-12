@@ -49,6 +49,7 @@
 		display: flex;
 		gap: rem(10);
 		justify-content: end;
+		align-items: center;
 		margin-bottom: rem(31);
 	}
 
@@ -66,6 +67,10 @@
 		color: $color_salad;
 	}
 
+	&__form {
+		position: relative;
+	}
+
 	&__input-email {
 		display: block;
 		width: 100%;
@@ -78,6 +83,10 @@
 		margin-bottom: rem(24);
 		transition: all 0.5s ease;
 
+		&._error {
+			box-shadow: inset 0 0 rem(5) $color_coral;
+		}
+
 		&:focus {
 			box-shadow: inset 0 0 rem(5) rem(1) #c6cbcd;
 		}
@@ -87,6 +96,14 @@
 			line-height: prc(16, 14);
 			color: #c6cbcd;
 			// padding-left: rem(27);
+		}
+
+		&:invalid {
+			box-shadow: inset 0 0 rem(5) rem(1) $color_coral;
+		}
+
+		&:focus:invalid {
+			box-shadow: none;
 		}
 	}
 
@@ -102,7 +119,7 @@
 		text-align: center;
 		text-transform: uppercase;
 		color: #ffffff;
-		transition: background .5s ease;
+		transition: background 0.5s ease;
 
 		&:hover {
 			background: #87d2c4;
@@ -148,6 +165,7 @@
 	}
 
 	&__col {
+		color: #2d3033;
 	}
 
 	&__topic {
@@ -219,6 +237,21 @@
 		padding: rem(7) 0;
 	}
 
+	._error-message {
+		position: absolute;
+		font-size: rem(12);
+		top: rem(-15);
+		left: 0;
+
+		@media (min-width: $md) {
+			top: rem(-17);
+		}
+		@media (min-width: $xl) {
+			font-size: rem(14);
+			top: rem(-20);
+		}
+	}
+
 	@media (min-width: $md) {
 		&__block {
 			margin-bottom: rem(37);
@@ -247,7 +280,7 @@
 		}
 
 		&__socials-row {
-			gap: rem(15);
+			gap: rem(7);
 		}
 
 		.footer__form {
@@ -309,6 +342,12 @@
 
 		&__copy {
 			padding: rem(16) 0;
+		}
+	}
+
+	@media (min-width: $lg) {
+		&__socials-row {
+			gap: rem(15);
 		}
 	}
 

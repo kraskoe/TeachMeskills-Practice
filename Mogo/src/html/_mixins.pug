@@ -8,10 +8,10 @@ mixin menu(items)
 
 mixin title(cls,subtitle,title,text)
 	.title(class= cls)
-		h4.title__subtitle= subtitle
-		h3.title__title= title
+		p.title__subtitle= subtitle
+		h2.title__title= title
 		if text
-			.title__desc= text
+			p.title__desc= text
 
 mixin counters(content)
 	each item in content
@@ -22,7 +22,7 @@ mixin counters(content)
 mixin cardsAbout(pics,icon,title)
 	each pic in pics
 		.about__card
-			img.about__pic(src= pic)
+			img.about__pic(src= pic alt= "Picture of futuristic building")
 			.about__bg
 				.about__icon(class= icon)
 				a.about__slogan(data-goto= ".team" href= "#")= title
@@ -33,22 +33,22 @@ mixin cardsService(items)
 		.service__item
 			.service__icon(class= "icon-"+item.icon)
 			.service__column
-				h5.subtitle.service__slogan= item.title
-				.service__desc= item.desc
+				h3.subtitle.service__slogan= item.title
+				p.service__desc= item.desc
 
 mixin cardsTeam(content,icons)
 	each item in content
 		.team__card
 			.team__pic
-				img.team__img(src= item.pic)
+				img.team__img(src= item.pic alt= `Photo of ${item.name}`)
 				.team__bg
 					.team__icons
 						each icon in icons
-							a.team__link(data-goto= ".contacts" href="#")
-								img.team__icon(src= icon)
+							a.team__link(href="#")
+								img.team__icon(src= icon alt = "Go to contacts" data-goto= ".contacts")
 			.team__desc
-				h5.subtitle.team__name= item.name
-				.team__position= item.position
+				p.subtitle.team__name= item.name
+				p.team__position= item.position
 
 mixin quotes(content,flag)
 	each item in content
@@ -56,17 +56,17 @@ mixin quotes(content,flag)
 			.quote__slide
 				.quote__pic
 					if flag
-						img.quote__img.quote__img_visible(src= item.image)
+						img.quote__img.quote__img_visible(src= item.image alt= item.alt)
 					else
-						img.quote__img(src= item.image)
+						img.quote__img(src= item.image alt= item.alt)
 				.quote__col
-					.quote__quote= item.quote
-					.quote__author= item.author
+					p.quote__quote= item.quote
+					p.quote__author= item.author
 
 mixin gallery(count)
 	-for (var i = 1; i <= count; i++)
 		.work__pic
-			img.work__img(src= `@img/work/work_${i}.png`)
+			img.work__img(src= `@img/work/work_${i}.png` alt= `Gallery item ${i}`)
 			.work__bg
 				.work__icon(class= "icon-trophy")
 				a.work__subtitle(data-goto= ".design" href= "#")= "creatively design"
@@ -76,33 +76,37 @@ mixin reviews(items)
 	each item in items
 		.reviews__card
 			.reviews__pic
-				img.reviews__img(src= item.image)
+				img.reviews__img(src= item.image alt= `Photo of ${item.name}`)
 			.reviews__row
-				h5.subtitle.reviews__name= item.name
-				.reviews__position= item.position
-				.reviews__review Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis proin varius vitae leo eget tincidunt duis amet. Et amet dis vel imperdiet volutpat mauris est leo cursus.
+				p.subtitle.reviews__name= item.name
+				p.reviews__position= item.position
+				p.reviews__review Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis proin varius vitae leo eget tincidunt duis amet. Et amet dis vel imperdiet volutpat mauris est leo cursus.
 
 mixin socials(items)
 	each item in items
-		a.footer__socnet(class= item href= "#")
+		a.footer__socnet(class= item.class href= item.link)
 
 mixin blogs(count)
 	-for (var i = 1; i <= count; i++)
 		.footer__card
-			.footer__pic
-				img.footer__img(src= `@img/footer/c_blog_${i}.png`)
-			.footer__col
-				.footer__topic Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				.footer__date jan.9.22.15
+			a.footer__pic(href= "#")
+				img.footer__img(src= `@img/footer/c_blog_${i}.png` alt= `Footer blog picture ${i}` data-goto= ".blog")
+			a.footer__col(href= "#")
+				h4.footer__topic(data-goto= ".blog") Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				p.footer__date(data-goto= ".blog") jan.9.22.15
 
 mixin instagram(count)
 	-for (var i = 1; i <= count; i++)
-		.footer__grid-item
-			img.footer__grid-img(src= `@img/footer/c_instagram_${i}.png`)
+		a.footer__grid-item(href="https://www.instagram.com/mogo/")
+			img.footer__grid-img(src= `@img/footer/c_instagram_${i}.png` alt= `Footer Instagram picture ${i}`)
 
 mixin jobs(items)
 	each item,key in items
 		.job__item
-			input.job__radio(id= `accordeon_${key + 1}` type= "radio" name= "job")
+			if (key==0)
+				input.job__radio(id= `accordeon_${key + 1}` type= "radio" name= "job" checked)
+			else
+				input.job__radio(id= `accordeon_${key + 1}` type= "radio" name= "job")
 			label.job__label(class= item.icon for= `accordeon_${key + 1}`)= item.title
-			.job__content= item.content
+			.job__content-wrapper
+				p.job__content= item.content

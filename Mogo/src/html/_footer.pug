@@ -3,7 +3,6 @@ footer.footer
 		.footer__block
 			.footer__socials
 				img.footer__logo(src= "@img/logo_gray.svg")
-				//- img.footer__logo(src= "@img/logo.svg")
 				.footer__desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis proin varius vitae leo eget tincidunt duis amet. Et amet dis vel imperdiet volutpat mauris est leo cursus.
 				.footer__followers
 					span 15
@@ -12,8 +11,9 @@ footer.footer
 				.footer__socials-row
 					.footer__follow Follow Us
 					+socials(socials)
-				form.footer__form(action= "#" method= "get")
-					input.footer__input-email(type= "email" placeholder= "Your Email")
+				form.footer__form(action= "#" method= "get" novalidate)
+					input.footer__input-email._req._email(type= "text" placeholder= "Your Email")
+					//- input.footer__input-email(type= "text" placeholder= "Your Email" pattern= "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$")
 					input.footer__input-submit(type= "submit" value= "subscribe")
 
 			.footer__blog
@@ -24,6 +24,6 @@ footer.footer
 				h5.subtitle.footer__subtitle instagram
 				.footer__grid
 					+instagram(9)
-				a.footer__link(href= "#") see all photos
+				a.footer__link(href= "https://msng.link/o/?mogo=ig") see all photos
 
 		.footer__copy Copyright © 2021 mogo. All Rights Reserved

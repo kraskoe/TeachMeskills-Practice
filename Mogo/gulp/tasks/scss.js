@@ -41,7 +41,7 @@ export const scss = () => {
 					cascade: true
 				})
 			))
-		.pipe(app.gulp.dest(app.path.build.css)) //Duplicates non-minified file
+		// .pipe(app.gulp.dest(app.path.build.css)) //Duplicates non-minified file
 		.pipe(
 			app.plugins.if(
 				app.isBuild,
