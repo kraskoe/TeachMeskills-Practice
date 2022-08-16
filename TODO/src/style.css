@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root {
+	--primary: #ea40a4;
+	--primary-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+	--light: #eee;
+	--grey: #888;
+	--dark: #313154;
+	--danger: #ff5b57;
+
+	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+	--default: #7a7acc;
+	--car: #56bf9c;
+	--cooking: #d96da1;
+	--home: #b17acc;
+	--ideas: #ffaa33;
+	--payments: #ca5463;
+	--purchases: #7acc52;
+	--travel: #348ce1;
+	--work: #a3b8cc;
+
+
+
+	--default-glow: 0px 0px 4px rgba(122, 122, 204, 0.75);
+	--car-glow: 0px 0px 4px rgba(86, 191, 156, 0.75);
+	--cooking-glow: 0px 0px 4px rgba(217, 109, 161, 0.75);
+	--home-glow: 0px 0px 4px rgba(177, 122, 204, 0.75);
+	--ideas-glow: 0px 0px 4px rgba(255, 170, 51, 0.75);
+	--payments-glow: 0px 0px 4px rgba(202, 84, 99, 0.75);
+	--purchases-glow: 0px 0px 4px rgba(122, 204, 82, 0.75);
+	--travel-glow: 0px 0px 4px rgba(52, 140, 225, 0.75);
+	--work-glow: 0px 0px 4px rgba(163, 184, 204, 0.75);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'montserrat', sans-serif;
+}
+
+input:not([type="checkbox"]), button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: initial;
+}
+
+body {
+	background: var(--light);
+	color: var(--dark);
+}
+
+section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+h3 {
+	color: var(--dark);
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+h4 {
+	color: var(--grey);
+	font-size: 0.875rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.title {
+	display: flex;
+}
+
+#name {
+	margin-left: 0.5rem;
+	flex: 1 1 0%;
+	min-width: 0;
+}
+
+.title,
+#name {
+	color: var(--dark);
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+#new-todo-form {
+	padding-top: 15px;
+}
+
+#content,
+#category {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1.5rem;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+.bubble {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid var(--default);
+	box-shadow: var(--default-glow);
+}
+
+.car {
+	border-color: var(--car);
+	box-shadow: var(--car-glow);
+}
+
+.cooking {
+	border-color: var(--cooking);
+	box-shadow: var(--cooking-glow);
+}
+
+.home {
+	border-color: var(--home);
+	box-shadow: var(--home-glow);
+}
+
+.ideas {
+	border-color: var(--ideas);
+	box-shadow: var(--ideas-glow);
+}
+
+.payments {
+	border-color: var(--payments);
+	box-shadow: var(--payments-glow);
+}
+
+.purchases {
+	border-color: var(--purchases);
+	box-shadow: var(--purchases-glow);
+}
+
+.travel {
+	border-color: var(--travel);
+	box-shadow: var(--travel-glow);
+}
+
+.work {
+	border-color: var(--work);
+	box-shadow: var(--work-glow);
+}
+
+.bubble::before {
+	content: "";
+	display: block;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	background-color: var(--default);
+	box-shadow: var(--default-glow);
+	border-radius: 50%;
+	transition: 0.5s ease-in-out;
+}
+
+.car::before {
+	background-color: var(--car);
+	box-shadow: var(--car-glow);
+}
+
+.cooking::before {
+	background-color: var(--cooking);
+	box-shadow: var(--cooking-glow);
+}
+
+.home::before {
+	background-color: var(--home);
+	box-shadow: var(--home-glow);
+}
+
+.ideas::before {
+	background-color: var(--ideas);
+	box-shadow: var(--ideas-glow);
+}
+
+.payments::before {
+	background-color: var(--payments);
+	box-shadow: var(--payments-glow);
+}
+
+.purchases::before {
+	background-color: var(--purchases);
+	box-shadow: var(--purchases-glow);
+}
+
+.travel::before {
+	background-color: var(--travel);
+	box-shadow: var(--travel-glow);
+}
+
+.work::before {
+	background-color: var(--work);
+	box-shadow: var(--work-glow);
+}
+
+input:checked ~ .bubble::before {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}
+
+.create-todo input[type="submit"] {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #fff;
+	background-color: var(--primary);
+	border-radius: 0.5rem;
+	box-shadow: var(--primary-glow);
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+	opacity: 0.8;
+}
+
+.create-todo input[type="submit"]:hover {
+	opacity: 1;
+	/*filter: saturate(2);*/
+}
+
+.list {
+	margin: 1rem 0;
+}
+
+.todo-item {
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1rem;
+}
+
+.todo-item label {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.todo-content {
+	flex: 1 1 0%;
+	padding-left: 50px;
+}
+
+.todo-content input {
+	color: var(--dark);
+	font-size: 1.125rem;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+}
+
+.actions button {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+}
+
+.actions button:hover {
+	opacity: 1;
+	/*filter: saturate(2);*/
+}
+
+.edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+	opacity: 0.8;
+}
+
+.delete {
+	background-color: var(--danger);
+	opacity: 0.8;
+}
+
+.todo-item.done .todo-content input {
+	text-decoration: line-through;
+	color: var(--grey);
+}
+
+.bubble::after {
+	position: absolute;
+	left: 30px;
+	content: '';
+	display: block;
+	width: 46px;
+	height: 46px;
+}
+
+.car::after {
+	content: url("icons/car.png");
+}
+
+.cooking::after {
+	content: url("icons/cooking.png");
+}
+
+.default::after {
+	content: url("icons/default.png");
+}
+
+.home::after {
+	content: url("icons/home.png");
+}
+
+.ideas::after {
+	content: url("icons/ideas.png");
+}
+
+.payments::after {
+	content: url("icons/payments.png");
+}
+
+.purchases::after {
+	content: url("icons/purchases.png");
+}
+
+.travel::after {
+	content: url("icons/travel.png");
+}
+
+.work::after {
+	content: url("icons/work.png");
+}

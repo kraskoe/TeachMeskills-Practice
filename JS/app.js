@@ -1,3 +1,110 @@
+'use strict'
+
+//-==CLOSURES==-
+// let a = 1;
+//
+// function func() {
+// 	console.log(b);
+// }
+// let b = 2;
+//
+// {
+// 	let a = 5;
+// 	func();
+// 	console.log(func);
+// }
+
+// const arrA1 = [];
+// const arrA2 = [];
+//
+// console.time('timer1');
+// for (let i = 0; i < 100000; i++) {
+// 	arrA1.push(i);
+// }
+// console.timeEnd('timer1');
+//
+// console.time('timer2');
+// for (let i = 0; i < 100000; i++) {
+// 	arrA2.unshift(i);
+// }
+// console.timeEnd('timer2');
+
+// const person1 = {name: "Misha", age: 25, job: "Frontend"};
+// const person2 = {name: "Tanya", age: 27, job: "JAVA"};
+// const arrPer = [person1,person2];
+// console.table(arrPer);
+
+// num = 3;
+// console.log(num);
+// var num = 5;
+
+// let func1 = function () {
+// 	return this;
+// }
+//
+// let func2 = () => {return this};
+//
+// let obj1 = {
+// 	func3() {
+// 		console.log(this);
+// 		return func1();
+// 	}
+// }
+//
+// let obj2 = {
+// 	students: ['John', 'Pete', 'Alice'],
+// 	func5: () => this,
+// 	func4() {
+// 		console.log(this);
+// 		return (() => {return this})();
+// 		// return func2();
+// 		// this.students.forEach(
+// 		// 	val => console.log(this)
+// 		// 	// function (val) {
+// 		// 	// 	console.log(this)
+// 		// 	// }
+// 		// );
+// 	}
+// }
+//
+// // console.log(obj1.func3());
+// // console.log(obj2.func4());
+// console.log(obj2.func5());
+
+//CLOSURES
+// let phrase = "Hello";
+// if (true) {
+// 	let user = "John";
+//
+// 	function sayHi() {
+// 		console.log(`${phrase}, ${user}`);
+// 	}
+// }
+// sayHi();  //in strict mode sayHi is not defined!
+
+// let num = 5;
+// function returnNumFunc() {
+// 	return num;
+// }
+// console.log(typeof(num));
+// num = 7;
+// if (true) {
+// 	let num = 3;
+// 	console.log(returnNumFunc());
+// }
+
+// function logPerson() {
+// 	console.log(`Person: ${this.name}, ${this.age}, ${this.job}`);
+// }
+//
+// function bind(context, fn) {
+// 	return fn.apply(context);
+// }
+//
+// const person1 = {name: 'Misha', age: 22, job: 'Frontend'};
+//
+// bind(person1, logPerson);
+
 //===TASK 1===//
 // let arr1 = [];
 // for (let i = 0; i < 5; i++) {
@@ -33,7 +140,7 @@
 //
 // console.log(countBits(7));
 
-//===TASK 5===//
+// ===TASK 5===//
 // function maskify(cc) {
 // 	return cc.toString().replace(/(?=.{5})./g, '#');
 // 	// return cc.toString().replace(/.(?=.{4})/g, '#');
@@ -90,3 +197,21 @@
 // console.log(pigIt('Hello world !'));     // elloHay orldway !
 
 //===TASK 9===//
+
+// function humanReadable (seconds) {
+// 	return Math.floor(seconds / 3600).toString().padStart(2, '0')
+// 		+ ':' + Math.floor((seconds % 3600) / 60).toString().padStart(2, '0')
+// 		+ ':' + (seconds % 60).toString().padStart(2, '0');
+// }
+//
+// console.log(humanReadable(59));
+
+//===TASK 10===//
+
+// function digPow(n, p){
+// 	let powArg = p;
+// 	let sum = n.toString().split('').reduce((acc, val) => acc += val ** powArg++, 0);
+// 	return sum % n === 0 ? sum / n : -1;
+// }
+//
+// console.log(digPow(46288, 3));
