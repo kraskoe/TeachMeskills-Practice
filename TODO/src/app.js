@@ -1,4 +1,5 @@
 'use strict'
+import './style.css';
 
 let todos;
 
