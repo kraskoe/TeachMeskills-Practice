@@ -1,0 +1,200 @@
+.new-task__form {
+	padding-top: 15px;
+	display: flex;
+	gap: 30px;
+}
+
+.new-task__title,
+.new-task__desc,
+.new-task__date,
+.new-task__category-container {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	/*margin-bottom: 1.5rem;*/
+}
+
+.new-task__category-list {
+	margin-bottom: 0;
+	list-style: none;
+}
+
+.new-task__desc {
+	resize: none;
+	outline: none;
+	border: none;
+	flex: 1 1 auto;
+}
+
+.new-task__category-container {
+	transform: scaleY(0);
+	max-height: 0;
+	overflow-y: auto;
+	transition: 0.5s ease-in-out;
+}
+
+.new-task__category-container._active {
+	transform: scaleY(1);
+	max-height: 25.5rem;
+}
+
+.new-task__category {
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+}
+
+.new-task__category-color {
+	padding-right: 0.5rem;
+	width: 5rem;
+	cursor: pointer;
+}
+
+.new-task__category-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 0.5rem;
+	border: none;
+}
+
+.new-task__category-item,
+.new-task__add-category {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.new-task__category-item {
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.new-task__add-category {
+	margin-top: 1rem;
+}
+
+.new-task__category-item:first-child {
+	border-top: 1px solid #ddd;
+}
+
+.new-task__category-value {
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	cursor: pointer;
+}
+
+.new-task__category-value_narrow {
+	padding: 0.5rem 1.5rem;
+}
+
+.new-task__category-edit,
+.new-task__category-delete,
+.new-task__category-add {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+	opacity: 0.8;
+}
+
+.new-task__category-edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+}
+
+.new-task__category-delete {
+	background-color: var(--danger);
+}
+
+.new-task__category-add {
+	width: 80%;
+	background-color: var(--primary);
+	font-size: 1.125rem;
+}
+
+.new-task__category-edit:hover,
+.new-task__category-delete:hover {
+	opacity: 1;
+}
+
+.new-task__column {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+.new-task__option-column {
+
+}
+
+.new-task__importance {
+	display: flex;
+	/*flex-direction: column;*/
+	gap: 15px;
+	margin-bottom: 1.5rem;
+}
+
+.new-task__importance-item {
+	flex: 1 1 auto;
+}
+
+.new-task__importance-label {
+	position: relative;
+	display: block;
+	padding: 0.5rem 0.5rem 0.5rem 3.5rem;
+	line-height: 2.4rem;
+	border-radius: 0.5rem;
+	color: var(--dark);
+	cursor: pointer;
+	background-color: #fff;
+	opacity: 0.6;
+	transition: 0.5s ease-in-out;
+}
+
+.new-task__importance-label::before {
+	position: absolute;
+	left: 0.45rem;
+	top: 0.45rem;
+	display: block;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+label[for='new-task-importance_1']::before {
+	content: url("icons/generic.png");
+}
+
+label[for='new-task-importance_2']::before {
+	content: url("icons/important.png");
+}
+
+label[for='new-task-importance_3']::before {
+	content: url("icons/crucial.png");
+}
+
+input[name='new-task-importance'] {
+	display: none;
+}
+
+input[name='new-task-importance']:checked ~ label,
+.new-task__importance-label:hover {
+	opacity: 1;
+}
+
+.new-task__date,
+.new-task__date::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+}
