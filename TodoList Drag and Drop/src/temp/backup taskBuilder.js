@@ -288,13 +288,13 @@ function returnNewCategory() {
 		if (e.code === 'Escape') cancelNewCategory(e);
 	})
 	newCategoryInput.addEventListener('input', e => {
-			if (categories.find(obj => obj.value === newCategoryInput.value)) {
-				newCategorySaveButton.setAttribute('disabled', 'disabled');
-				newCategoryInput.style.color = 'red';
-			} else {
-				newCategorySaveButton.removeAttribute('disabled');
-				newCategoryInput.style.color = '';
-			}
+		if (categories.find(obj => obj.value === newCategoryInput.value)) {
+			newCategorySaveButton.setAttribute('disabled', 'disabled');
+			newCategoryInput.style.color = 'red';
+		} else {
+			newCategorySaveButton.removeAttribute('disabled');
+			newCategoryInput.style.color = '';
+		}
 	})
 	newCategoryInput.addEventListener('keyup', e => {
 		if (e.code === 'Enter') {
@@ -313,7 +313,7 @@ function returnNewCategory() {
 			saveNewCategory(e)
 		} else {
 			newCategoryInput.style.color = 'red';
-		newCategoryInput.focus();
+			newCategoryInput.focus();
 		}
 	});
 	newCategoryCancelButton.addEventListener('click', cancelNewCategory);
@@ -416,8 +416,6 @@ function toggleCategoriesBar() {
 }
 
 function setCategory(event) {
-	if (event.defaultPrevented) return;
-
 	const categoryItem = document.querySelector('.new-task__category-picker');
 
 	categoryItem.innerHTML = event.target.closest('.new-task__category-item').children[0].value;
@@ -427,7 +425,7 @@ function setCategory(event) {
 }
 
 function deleteCategory(event) {
-	// event.stopPropagation();
+	event.stopPropagation();
 	let categories = getCategories();
 	const taskID = event.target.closest('.new-task__category-item').dataset?.id;
 	// const taskName = event.target.closest('.new-task__category-item').querySelector('[type="text"]').value;
@@ -437,7 +435,7 @@ function deleteCategory(event) {
 }
 
 function editCategory(event) {
-	// event.stopPropagation();
+	event.stopPropagation();
 
 	const item = event.target.closest('.new-task__category-item');
 	const input = item.querySelector('.new-task__category-value');

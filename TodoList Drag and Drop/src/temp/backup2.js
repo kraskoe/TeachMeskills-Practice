@@ -52,6 +52,7 @@ function buildNewTaskColumn() {
 	newTaskColumn.classList.add('new-task__column');
 
 	const inputSymbolsCounter2 = inputSymbolsCounter.cloneNode();
+	inputSymbolsCounter.style.marginBottom = '1rem';
 
 	newTaskColumn.append(newTaskTitle);
 	newTaskColumn.append(newTaskInput);
@@ -279,8 +280,10 @@ function returnNewCategory() {
 		newCategoryInput.addEventListener('keyup', e => {
 			if (e.code === 'Enter') saveNewCategory(e);
 		})
-		newCategorySaveButton.addEventListener('click', e => saveNewCategory(e));
-		newCategoryCancelButton.addEventListener('click', e => cancelNewCategory(e));
+		newCategoryItem.addEventListener('click', e => {
+			if (e.target === newCategorySaveButton) saveNewCategory(e);
+			if (e.target === newCategoryCancelButton) cancelNewCategory(e);
+		}, true)
 	})
 
 	return newCategoryItem;
@@ -441,10 +444,15 @@ function saveNewCategory(event) {
 	let categories = getCategories();
 	let maxOrder = Math.max(...(categories.map(item => item.order)));
 
+	//Проверка из-за глючного задваивания
+	if (categories.find(cat => cat.value === input.value)) return;
+
 	categories.push({value: input.value,
 		color: color.value,
 		order: maxOrder + 1,
 	})
+
+	console.log(categories);
 
 	setCategories(categories);
 

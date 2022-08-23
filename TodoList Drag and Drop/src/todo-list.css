@@ -1,0 +1,94 @@
+.todo__list {
+	margin-top: 1rem;
+}
+
+.todo__item {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	background-color: #fff;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1rem;
+}
+
+.todo__title {
+	flex: 1 1 0%;
+	color: var(--dark);
+	font-size: 1.125rem;
+}
+
+.todo__actions {
+	display: flex;
+	align-items: center;
+}
+
+.todo__actions button {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+}
+
+.todo__actions button:hover {
+	opacity: 1;
+	/*filter: saturate(2);*/
+}
+
+.todo__edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+	opacity: 0.8;
+}
+
+.todo__delete {
+	background-color: var(--danger);
+	opacity: 0.8;
+}
+
+.todo__item._done .todo__title {
+	text-decoration: line-through;
+	color: var(--grey);
+}
+
+.todo__label {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.todo__bubble {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid var(--primary);
+	/*box-shadow: var(--default-glow);*/
+}
+
+.todo__bubble::before {
+	position: absolute;
+	top: -1rem;
+	left: -0.1rem;
+	content: "\2713";
+	display: block;
+	opacity: 0;
+	font-size: 1.8rem;
+	/*background-color: var(--primary);*/
+	border-radius: 50%;
+	transition: 0.5s ease-in-out;
+}
+
+.todo__checkbox {
+	display: none;
+}
+
+.todo__checkbox:checked ~ .todo__bubble::before {
+	opacity: 1;
+}

@@ -1,7 +1,11 @@
 .new-task__form {
-	padding-top: 15px;
+	padding-top: 1rem;
+}
+
+.new-task__form-container {
 	display: flex;
 	gap: 30px;
+	padding-bottom: 1rem;
 }
 
 .new-task__title,
@@ -43,28 +47,23 @@
 	max-height: 25.5rem;
 }
 
-.new-task__category {
-	font-size: 1.125rem;
-	padding: 1rem 1.5rem;
-	color: var(--dark);
-}
-
 .new-task__category-color {
-	padding-right: 0.5rem;
-	width: 5rem;
+	padding-right: 0.8rem;
+	max-width: 3rem;
+	height: 2.5rem;
 	cursor: pointer;
 }
 
-.new-task__category-wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.new-task__category-picker {
+	text-align: center;
 	width: 100%;
-	background-color: #fff;
+	color: #fff;
 	border-radius: 0.5rem;
-	box-shadow: var(--shadow);
 	margin-bottom: 0.5rem;
 	border: none;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	cursor: pointer;
 }
 
 .new-task__category-item,
@@ -92,6 +91,7 @@
 	padding: 1rem 1.5rem;
 	color: var(--dark);
 	cursor: pointer;
+	max-width: 12rem;
 }
 
 .new-task__category-value_narrow {
@@ -99,6 +99,8 @@
 }
 
 .new-task__category-edit,
+.new-task__category-save,
+.new-task__category-cancel,
 .new-task__category-delete,
 .new-task__category-add {
 	display: block;
@@ -108,13 +110,15 @@
 	cursor: pointer;
 	transition: 0.5s ease-in-out;
 	opacity: 0.8;
+	margin-left: 0.5rem;
 }
 
+.new-task__category-cancel,
 .new-task__category-edit {
-	margin-right: 0.5rem;
 	background-color: var(--primary);
 }
 
+.new-task__category-save,
 .new-task__category-delete {
 	background-color: var(--danger);
 }
@@ -197,4 +201,22 @@ input[name='new-task-importance']:checked ~ label,
 .new-task__date,
 .new-task__date::-webkit-calendar-picker-indicator {
 	cursor: pointer;
+}
+
+.new-task__add-task {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #fff;
+	background-color: var(--primary);
+	border-radius: 0.5rem;
+	box-shadow: var(--primary-glow);
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+	opacity: 0.6;
+}
+
+.new-task__add-task:hover {
+	opacity: 1;
 }

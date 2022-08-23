@@ -1,21 +1,36 @@
 export {buildNewTaskSection};
+import {displayTasks, getTasks, setTasks} from './tasksHandler';
+import { v4 as uuidv4 } from 'uuid';
 
 function buildNewTaskSection() {
 	const newTaskSection = document.createElement('section');
 	const newTaskFormHeader = document.createElement('h3');
 	const newTaskForm = document.createElement('form');
+	const newTaskSubmitButton = document.createElement('input');
+	const newTaskFormContainer = document.createElement('div');
+
+	newTaskSubmitButton.type = 'submit';
+	newTaskSubmitButton.value = 'Add task';
+	newTaskSubmitButton.classList.add('new-task__add-task');
 
 	newTaskFormHeader.innerHTML = 'Create a task';
 
+	newTaskFormContainer.classList.add('new-task__form-container');
+
 	newTaskForm.id = 'new-task__form';
 	newTaskForm.classList.add('new-task__form');
-	newTaskForm.append(buildNewTaskColumn());
-	newTaskForm.append(buildNewTaskOptionsColumn());
+	newTaskForm.setAttribute('novalidate', 'novalidate');
+	newTaskFormContainer.append(buildNewTaskColumn());
+	newTaskFormContainer.append(buildNewTaskOptionsColumn());
+	newTaskForm.append(newTaskFormContainer);
+	newTaskForm.append(newTaskSubmitButton);
 
 	newTaskSection.classList.add('new-task__section');
 	newTaskSection.append(newTaskFormHeader);
 	newTaskSection.insertAdjacentHTML('beforeend', '<hr>');
 	newTaskSection.append(newTaskForm);
+
+	newTaskForm.addEventListener('submit', addNewTask);
 
 	return newTaskSection;
 }
@@ -108,17 +123,20 @@ function buildNewTaskImportanceOptions() {
 		type: 'radio',
 		name: 'new-task-importance',
 		id: 'new-task-importance_1',
+		value: 0,
 		checked: 'checked',
 	})
 	Object.assign(newTaskImportanceRadioInput2, {
 		type: 'radio',
 		name: 'new-task-importance',
 		id: 'new-task-importance_2',
+		value: 1,
 	})
 	Object.assign(newTaskImportanceRadioInput3, {
 		type: 'radio',
 		name: 'new-task-importance',
 		id: 'new-task-importance_3',
+		value: 2,
 	})
 
 	newTaskImportanceRadioLabel1.setAttribute('for', 'new-task-importance_1');
@@ -152,37 +170,28 @@ function buildNewTaskImportanceOptions() {
 function buildNewTaskCategoryOption(){
 	const newTaskCategories = document.createElement('div');
 	const newTaskCategory = document.createElement('div');
-	const newTaskCategorySelect = document.createElement('input');
-	const newTaskCategoryColor = document.createElement('input');
 	const newTaskCategoryContainer = document.createElement('div');
 
-	newTaskCategory.classList.add('new-task__category-wrapper')
-	newTaskCategoryContainer.classList.add('new-task__category-container')
+	newTaskCategories.classList.add('new-task__category-wrapper');
+	newTaskCategory.classList.add('new-task__category-picker');
 
-	Object.assign(newTaskCategorySelect, {
-		type: 'text',
-		name: 'task-category',
-		value: 'General',
-	})
-	newTaskCategorySelect.classList.add('new-task__category')
-	newTaskCategorySelect.setAttribute('readonly', 'readonly');
-
-	Object.assign(newTaskCategoryColor, {
-		type: 'color',
-		name: 'category-color',
-		value: '#7a7acc',
-		disabled: 'disabled',
-	})
-	newTaskCategoryColor.classList.add('new-task__category-color');
+	newTaskCategoryContainer.classList.add('new-task__category-container');
 
 	newTaskCategoryContainer.append(returnCategories());
 	newTaskCategoryContainer.append(returnNewCategory());
-	newTaskCategory.append(newTaskCategorySelect);
-	newTaskCategory.append(newTaskCategoryColor);
 	newTaskCategories.append(newTaskCategory);
 	newTaskCategories.append(newTaskCategoryContainer);
 
 	newTaskCategory.addEventListener('click', toggleCategoriesBar);
+
+	newTaskCategory.innerHTML = newTaskCategoryContainer
+		.firstElementChild
+		.firstElementChild
+		.firstElementChild.value || 'General';
+	newTaskCategory.style.backgroundColor = newTaskCategoryContainer
+		.firstElementChild
+		.firstElementChild
+		.children[1].value || '#7a7acc';
 
 	return newTaskCategories;
 }
@@ -230,6 +239,7 @@ function returnNewCategory() {
 	const newCategoryColor = document.createElement('input');
 	const newCategorySaveButton = document.createElement('button');
 	const newCategoryCancelButton = document.createElement('button');
+	const categories = getCategories();
 
 	newCategoryItem.classList.add('new-task__add-category');
 	newCategoryInput.classList.add('new-task__category-value', 'new-task__category-value_narrow');
@@ -237,14 +247,14 @@ function returnNewCategory() {
 
 	Object.assign(newCategoryInput, {
 		type: 'text',
-		name: 'category-value',
+		// name: 'category-value',
 		placeholder: 'Type category name',
 	})
 	newCategoryInput.style.display = 'none';
 
 	Object.assign(newCategoryColor, {
 		type: 'color',
-		name: 'category-color',
+		// name: 'category-color',
 		value: '#7a7acc',
 	})
 	newCategoryColor.style.display = 'none';
@@ -273,39 +283,63 @@ function returnNewCategory() {
 		newCategoryAddButton.style.display = 'none';
 		newCategorySaveButton.style.display = '';
 		newCategoryCancelButton.style.display = '';
-
-		newCategoryInput.addEventListener('keyup', e => {
-			if (e.code === 'Escape') cancelNewCategory(e);
-		})
-		newCategoryInput.addEventListener('keyup', e => {
-			if (e.code === 'Enter') saveNewCategory(e);
-		})
-		newCategorySaveButton.addEventListener('click', e => saveNewCategory(e));
-		newCategoryCancelButton.addEventListener('click', e => cancelNewCategory(e));
 	})
+	newCategoryInput.addEventListener('keyup', e => {
+		if (e.code === 'Escape') cancelNewCategory(e);
+	})
+	newCategoryInput.addEventListener('input', e => {
+		if (categories.find(obj => obj.id === newCategoryInput.value)) {
+			newCategorySaveButton.setAttribute('disabled', 'disabled');
+			newCategoryInput.style.color = 'red';
+		} else {
+			newCategorySaveButton.removeAttribute('disabled');
+			newCategoryInput.style.color = '';
+		}
+	})
+	newCategoryInput.addEventListener('keyup', e => {
+		if (e.code === 'Enter') {
+			if (categories.find(obj => obj.id === newCategoryInput.value)) {
+				newCategorySaveButton.setAttribute('disabled', 'disabled');
+				newCategoryInput.style.color = 'red';
+			} else {
+				newCategorySaveButton.removeAttribute('disabled');
+				newCategoryInput.style.color = '';
+				saveNewCategory(e);
+			}
+		}
+	})
+	newCategorySaveButton.addEventListener('click', e => {
+		if (newCategoryInput.value) {
+			saveNewCategory(e)
+		} else {
+			newCategoryInput.style.color = 'red';
+			newCategoryInput.focus();
+		}
+	});
+	newCategoryCancelButton.addEventListener('click', cancelNewCategory);
 
 	return newCategoryItem;
 }
 
 function getCategories() {
 	const defaultCategories = [
-		{value: 'General', color: '#7a7acc', order: '01',},
-		{value: 'Car', color: '#56bf9c', order: '02',},
-		{value: 'Cooking', color: '#d96da1', order: '03',},
-		{value: 'Home', color: '#b17acc', order: '04',},
-		{value: 'Ideas', color: '#ffaa33', order: '05',},
-		{value: 'Payments', color: '#ca5463', order: '06',},
-		{value: 'Purchases', color: '#7acc52', order: '07',},
-		{value: 'Travel', color: '#348ce1', order: '09',},
-		{value: 'Work', color: '#a3b8cc', order: '08',},
+		{value: 'General', id: 'General', color: '#7a7acc', order: '01',},
+		{value: 'Car', id: 'Car', color: '#56bf9c', order: '02',},
+		{value: 'Cooking', id: 'Cooking', color: '#d96da1', order: '03',},
+		{value: 'Home', id: 'Home', color: '#b17acc', order: '04',},
+		{value: 'Ideas', id: 'Ideas', color: '#ffaa33', order: '05',},
+		{value: 'Payments', id: 'Payments', color: '#ca5463', order: '06',},
+		{value: 'Purchases', id: 'Purchases', color: '#7acc52', order: '07',},
+		{value: 'Travel', id: 'Travel', color: '#348ce1', order: '09',},
+		{value: 'Work', id: 'Work', color: '#a3b8cc', order: '08',},
 	];
 	return  JSON.parse(localStorage
 		.getItem('categories'))
 		?.sort((obj1, obj2) => obj1.order - obj2.order) || defaultCategories;
 }
 
-function setCategories(category) {
-	localStorage.setItem('categories', JSON.stringify(category));
+function setCategories(categories) {
+	localStorage.setItem('categories', JSON.stringify(categories));
 }
 
 function refreshCategories() {
@@ -318,24 +352,25 @@ function refreshCategories() {
 function processCategory(category) {
 	const categoryItem = document.createElement('li');
 	categoryItem.classList.add('new-task__category-item');
+	categoryItem.dataset.id = category.value;
 	categoryItem.draggable = true;
 
 	const categoryInput = document.createElement('input');
 	const categoryColor = document.createElement('input');
 	const categoryEditButton = document.createElement('button');
+	const categorySaveButton = document.createElement('button');
+	const categoryCancelButton = document.createElement('button');
 	const categoryDeleteButton = document.createElement('button');
 
 	categoryInput.classList.add('new-task__category-value');
 	Object.assign(categoryInput, {
 		type: 'text',
-		name: 'category-value',
 		value: category.value,
 	})
 	categoryInput.setAttribute('readonly', 'readonly');
 
 	Object.assign(categoryColor, {
 		type: 'color',
-		name: 'category-color',
 		value: category.color,
 		disabled: 'disabled',
 	})
@@ -344,21 +379,34 @@ function processCategory(category) {
 	categoryEditButton.classList.add('new-task__category-edit');
 	categoryEditButton.setAttribute('type', 'button');
 	categoryEditButton.innerHTML = 'Edit';
+	categorySaveButton.classList.add('new-task__category-save');
+	categorySaveButton.setAttribute('type', 'button');
+	categorySaveButton.innerHTML = 'Save';
+	categoryCancelButton.classList.add('new-task__category-cancel');
+	categoryCancelButton.setAttribute('type', 'button');
+	categoryCancelButton.innerHTML = 'Cancel';
 	categoryDeleteButton.classList.add('new-task__category-delete');
 	categoryDeleteButton.setAttribute('type', 'button');
 	categoryDeleteButton.innerHTML = 'Delete';
+
+	categoryEditButton.style.display = '';
+	categorySaveButton.style.display = 'none';
+	categoryCancelButton.style.display = 'none';
+	categoryDeleteButton.style.display = '';
 
 
 	categoryItem.append(categoryInput,
 		categoryColor,
 		categoryEditButton,
+		categorySaveButton,
+		categoryCancelButton,
 		categoryDeleteButton);
 
 	categoryItem.addEventListener('click', setCategory);
-
-	categoryEditButton.addEventListener('click', e => editCategory(e));
-
-	categoryDeleteButton.addEventListener('click', e => deleteCategory(e));
+	categoryEditButton.addEventListener('click', editCategory);
+	categorySaveButton.addEventListener('click', saveEditedCategory);
+	categoryCancelButton.addEventListener('click', cancelEditCategory);
+	categoryDeleteButton.addEventListener('click', deleteCategory);
 
 	return categoryItem;
 }
@@ -368,11 +416,10 @@ function toggleCategoriesBar() {
 }
 
 function setCategory(event) {
-	const categoryInput = document.querySelector('.new-task__category');
-	const categoryColor = document.querySelector('.new-task__category-color');
+	const categoryItem = document.querySelector('.new-task__category-picker');
 
-	categoryInput.value = event.currentTarget.children[0].value;
-	categoryColor.value = event.currentTarget.children[1].value;
+	categoryItem.innerHTML = event.target.closest('.new-task__category-item').children[0].value;
+	categoryItem.style.backgroundColor = event.target.closest('.new-task__category-item').children[1].value;
 
 	toggleCategoriesBar();
 }
@@ -380,8 +427,9 @@ function setCategory(event) {
 function deleteCategory(event) {
 	event.stopPropagation();
 	let categories = getCategories();
-	const taskName = event.target.closest('.new-task__category-item').querySelector('[type="text"]').value;
-	categories = categories.filter(cat => cat.value !== taskName);
+	const taskID = event.target.closest('.new-task__category-item').dataset?.id;
+	// const taskName = event.target.closest('.new-task__category-item').querySelector('[type="text"]').value;
+	categories = categories.filter(cat => cat.id !== taskID);
 	setCategories(categories);
 	refreshCategories();
 }
@@ -390,42 +438,68 @@ function editCategory(event) {
 	event.stopPropagation();
 
 	const item = event.target.closest('.new-task__category-item');
-	const input = item.querySelector('[type="text"]');
-	const color = item.querySelector('[type="color"]');
-	const edit = item.querySelector('.new-task__category-edit');
-	const inputValue = input.value;
-	const colorValue = color.value;
+	const input = item.querySelector('.new-task__category-value');
+	const color = item.querySelector('.new-task__category-color');
+	const editButton = item.querySelector('.new-task__category-edit');
+	const saveButton = item.querySelector('.new-task__category-save');
+	const cancelButton = item.querySelector('.new-task__category-cancel');
+	const deleteButton = item.querySelector('.new-task__category-delete');
 
 	item.removeEventListener('click', setCategory);
+
 	input.removeAttribute('readonly');
 	color.removeAttribute('disabled');
-	edit.innerHTML = 'Save';
-	edit.style.backgroundColor = '#ff5b57';
-
-	input.addEventListener('blur', e => saveEditedCategory(e, inputValue));
-	input.addEventListener('keyup', e => {
-		if (e.code === 'Enter') saveEditedCategory(e, inputValue);
-	})
-	edit.addEventListener('click', e => saveEditedCategory(e, inputValue));
+	editButton.style.display = 'none';
+	saveButton.style.display = '';
+	cancelButton.style.display = '';
+	deleteButton.style.display = 'none';
 }
 
-function saveEditedCategory(event,prevValue) {
-	let categories = getCategories();
-	const category = categories.find(cat => cat.value === prevValue);
+function cancelEditCategory(event, prevValue, prevColor) {
+	event.stopPropagation();
+
+	const item = event.target.closest('.new-task__category-item');
+	const input = item.querySelector('.new-task__category-value');
+	const color = item.querySelector('.new-task__category-color');
+	const editButton = item.querySelector('.new-task__category-edit');
+	const saveButton = item.querySelector('.new-task__category-save');
+	const cancelButton = item.querySelector('.new-task__category-cancel');
+	const deleteButton = item.querySelector('.new-task__category-delete');
+
+	input.setAttribute('readonly', 'readonly');
+	color.setAttribute('disabled', 'disabled');
+
+	editButton.style.display = '';
+	saveButton.style.display = 'none';
+	cancelButton.style.display = 'none';
+	deleteButton.style.display = '';
+}
+
+function saveEditedCategory(event,prevValue, prevColor) {
+	event.stopPropagation();
+
+	const categories = getCategories();
+	const category = categories.find(cat => cat.value === prevValue && cat.color === prevColor);
 
 	const item = event.target.closest('.new-task__category-item');
 	const input = item.querySelector('[type="text"]');
 	const color = item.querySelector('[type="color"]');
-	const edit = item.querySelector('.new-task__category-edit');
+	const editButton = item.querySelector('.new-task__category-edit');
+	const saveButton = item.querySelector('.new-task__category-save');
+	const cancelButton = item.querySelector('.new-task__category-cancel');
+	const deleteButton = item.querySelector('.new-task__category-delete');
 
 	input.setAttribute('readonly', 'readonly');
 	color.setAttribute('disabled', 'disabled');
 	category.value = input.value;
 	category.color = color.value;
 	setCategories(categories);
-	edit.innerHTML = 'Edit';
-	edit.style.backgroundColor = '';
-	refreshCategories();
+
+	editButton.style.display = '';
+	saveButton.style.display = 'none';
+	cancelButton.style.display = 'none';
+	deleteButton.style.display = '';
+	// refreshCategories();
 }
 
 function saveNewCategory(event) {
@@ -435,30 +509,23 @@ function saveNewCategory(event) {
 	if (!input.value) return;
 
 	const color = item.querySelector('[type="color"]');
-	const add = item.querySelector('.new-task__category-add');
-	const save = item.querySelector('.new-task__category-edit');
-	const cancel = item.querySelector('.new-task__category-delete');
 
 	let categories = getCategories();
 	let maxOrder = Math.max(...(categories.map(item => item.order)));
 
 	categories.push({value: input.value,
+		id: input.value,
 		color: color.value,
 		order: maxOrder + 1,
 	})
 
 	setCategories(categories);
 
-	input.style.display = 'none';
-	color.style.display = 'none';
-	add.style.display = '';
-	save.style.display = 'none';
-	cancel.style.display = 'none';
-
 	refreshCategories();
 }
 
 function cancelNewCategory(event) {
+
 	const item = event.target.closest('.new-task__add-category');
 	const input = item.querySelector('[type="text"]');
 	const color = item.querySelector('[type="color"]');
@@ -516,6 +583,7 @@ function sortLocalStorageCategories() {
 	const categoriesArr = Array.from(categories)
 		.map(item => {
 			return {value: item.children[0].value,
+				id: item.dataset.id,
 				color: item.children[1].value,
 				order: ++order,
 			}
@@ -523,3 +591,42 @@ function sortLocalStorageCategories() {
 
 	setCategories(categoriesArr);
 }
+
+function addNewTask(event) {
+	event.preventDefault();
+
+	if (!event.target.elements['new-task-title'].value) {
+		return;
+	}
+
+	let tasks = getTasks();
+
+	const todo = {
+		title: event.target.elements['new-task-title'].value,
+		desc: event.target.elements['new-task-desc'].value,
+		importance: event.target.elements['new-task-importance'].value,
+		category: event.target.querySelector('.new-task__category-picker').innerHTML,
+		color: event.target.querySelector('.new-task__category-picker').style.backgroundColor,
+		expiryDate: event.target.elements['new-task-date'].value,
+		done: false,
+		dateCreated: new Date().getTime(),
+	}
+
+	tasks.push(todo);
+
+	setTasks(tasks);
+
+	rebuildMenu();
+
+	displayTasks();
+}
+
+function rebuildMenu() {
+	const formContainer = document.querySelector('.new-task__form-container');
+	formContainer.innerHTML = '';
+
+	formContainer.append(buildNewTaskColumn());
+	formContainer.append(buildNewTaskOptionsColumn());
+}
+
+
