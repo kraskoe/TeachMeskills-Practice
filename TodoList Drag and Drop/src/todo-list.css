@@ -3,28 +3,88 @@
 }
 
 .todo__item {
+	margin-bottom: 1rem;
+}
+
+hr + .todo__item._done {
+	margin-top: 1rem;
+}
+
+.todo__item-picker {
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
 	background-color: #fff;
-	padding: 1rem;
+	padding: 0.5rem;
 	border-radius: 0.5rem;
 	box-shadow: var(--shadow);
-	margin-bottom: 1rem;
+	margin-bottom: 0.2rem;
 }
 
 .todo__title {
-	flex: 1 1 0%;
+	flex: 1 1 auto;
 	color: var(--dark);
 	font-size: 1.125rem;
 }
 
-.todo__actions {
-	display: flex;
-	align-items: center;
+.todo__desc {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	resize: none;
+	outline: none;
+	border: none;
+	flex: 1 1 auto;
 }
 
-.todo__actions button {
+.todo__importance {
+	position: relative;
+	display: block;
+	margin: 0 0.5rem;
+	line-height: 2.4rem;
+	border-radius: 0.5rem;
+	color: var(--dark);
+	cursor: pointer;
+	background-color: #fff;
+	opacity: 0.6;
+	transition: 0.5s ease-in-out;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.todo__importance[data-importance='0'] {
+	background: url("icons/generic.png") no-repeat center/cover;
+}
+
+.todo__importance[data-importance='1'] {
+	background: url("icons/important.png") no-repeat center/cover;
+}
+
+.todo__importance[data-importance='2'] {
+	background: url("icons/crucial.png") no-repeat center/cover;
+}
+
+.todo__category {
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	color: #fff;
+	margin-right: 1rem;
+}
+
+.todo__expiry {
+	width: 6rem;
+}
+
+.todo__edit,
+.todo__save,
+.todo__cancel,
+.todo__delete {
 	display: block;
 	padding: 0.5rem;
 	border-radius: 0.5rem;
@@ -33,31 +93,35 @@
 	transition: 0.5s ease-in-out;
 }
 
-.todo__actions button:hover {
+.todo__edit:hover,
+.todo__save:hover,
+.todo__cancel:hover,
+.todo__delete:hover {
 	opacity: 1;
-	/*filter: saturate(2);*/
 }
 
-.todo__edit {
-	margin-right: 0.5rem;
+.todo__edit,
+.todo__cancel {
 	background-color: var(--primary);
 	opacity: 0.8;
 }
 
-.todo__delete {
+.todo__delete,
+.todo__save {
 	background-color: var(--danger);
 	opacity: 0.8;
 }
 
-.todo__item._done .todo__title {
+.todo__item._done .todo__title,
+.todo__item._done .todo__desc {
 	text-decoration: line-through;
 	color: var(--grey);
 }
 
 .todo__label {
 	display: block;
-	margin-right: 1rem;
 	cursor: pointer;
+	margin-left: 0.5rem;
 }
 
 .todo__bubble {

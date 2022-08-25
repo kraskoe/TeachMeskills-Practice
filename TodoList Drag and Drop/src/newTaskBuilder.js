@@ -1,4 +1,4 @@
-export {buildNewTaskSection};
+export {buildNewTaskSection, getCategories};
 import {displayTasks, getTasks, setTasks} from './tasksHandler';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -171,6 +171,9 @@ function buildNewTaskCategoryOption(){
 	const newTaskCategories = document.createElement('div');
 	const newTaskCategory = document.createElement('div');
 	const newTaskCategoryContainer = document.createElement('div');
+	const categories = getCategories();
+	const minOrder = Math.min(...(categories.map(obj => obj.order)));
+	const defaultCategory = categories.find(obj => obj.order = minOrder);
 
 	newTaskCategories.classList.add('new-task__category-wrapper');
 	newTaskCategory.classList.add('new-task__category-picker');
@@ -184,14 +187,9 @@ function buildNewTaskCategoryOption(){
 
 	newTaskCategory.addEventListener('click', toggleCategoriesBar);
 
-	newTaskCategory.innerHTML = newTaskCategoryContainer
-		.firstElementChild
-		.firstElementChild
-		.firstElementChild.value || 'General';
-	newTaskCategory.style.backgroundColor = newTaskCategoryContainer
-		.firstElementChild
-		.firstElementChild
-		.children[1].value || '#7a7acc';
+	newTaskCategory.innerHTML = defaultCategory.value;
+	newTaskCategory.style.backgroundColor = defaultCategory.color;
+	newTaskCategory.dataset.id = defaultCategory.id;
 
 	return newTaskCategories;
 }
@@ -321,7 +319,7 @@ function returnNewCategory() {
 	return newCategoryItem;
 }
 
-function getCategories() {
+function initCategories() {
 	const defaultCategories = [
 		{value: 'General', id: uuidv4(), color: '#7a7acc', order: '01',},
 		{value: 'Car', id: uuidv4(), color: '#56bf9c', order: '02',},
@@ -333,9 +331,15 @@ function getCategories() {
 		{value: 'Travel', id: uuidv4(), color: '#348ce1', order: '09',},
 		{value: 'Work', id: uuidv4(), color: '#a3b8cc', order: '08',},
 	];
+
+	setCategories(defaultCategories);
+}
+
+function getCategories() {
+	if (!localStorage.key('tasks')) initCategories();
 	return  JSON.parse(localStorage
 		.getItem('categories'))
-		?.sort((obj1, obj2) => obj1.order - obj2.order) || defaultCategories;
+		?.sort((obj1, obj2) => obj1.order - obj2.order);
 }
 
 function setCategories(categories) {
@@ -416,18 +420,20 @@ function toggleCategoriesBar() {
 }
 
 function setCategory(event) {
-	if (event.defaultPrevented) return;
+	// if (event.defaultPrevented) return;
 
 	const categoryItem = document.querySelector('.new-task__category-picker');
+	const item = event.target.closest('.new-task__category-item');
 
-	categoryItem.innerHTML = event.target.closest('.new-task__category-item').children[0].value;
-	categoryItem.style.backgroundColor = event.target.closest('.new-task__category-item').children[1].value;
+	categoryItem.innerHTML = item.children[0].value;
+	categoryItem.style.backgroundColor = item.children[1].value;
+	categoryItem.dataset.id = item.dataset.id;
 
 	toggleCategoriesBar();
 }
 
 function deleteCategory(event) {
-	// event.stopPropagation();
+	event.stopPropagation();
 	let categories = getCategories();
 	const taskID = event.target.closest('.new-task__category-item').dataset?.id;
 	// const taskName = event.target.closest('.new-task__category-item').querySelector('[type="text"]').value;
@@ -469,7 +475,7 @@ function editCategory(event) {
 	})
 	input.addEventListener('keyup', e => {
 		if (e.code === 'Enter') {
-			if (categories.find(obj => obj.value === input.value)) {
+			if (categories.find(obj => obj.id !== item.dataset.id && obj.value === input.value)) {
 				saveButton.setAttribute('disabled', 'disabled');
 				input.style.color = 'red';
 			} else {
@@ -514,6 +520,7 @@ function cancelEditCategory(event) {
 function saveEditedCategory(event) {
 	event.stopPropagation();
 
+	const categoryItem = document.querySelector('.new-task__category-picker');
 	const item = event.target.closest('.new-task__category-item');
 	const input = item.querySelector('[type="text"]');
 	const color = item.querySelector('[type="color"]');
@@ -528,9 +535,17 @@ function saveEditedCategory(event) {
 	input.setAttribute('readonly', 'readonly');
 	color.setAttribute('disabled', 'disabled');
 
+	if (categoryItem.dataset.id === item.dataset.id) {
+		categoryItem.innerHTML = item.children[0].value;
+		categoryItem.style.backgroundColor = item.children[1].value;
+	}
+
+
+
 	category.value = input.value;
 	category.color = color.value;
 	setCategories(categories);
+
 
 	editButton.style.display = '';
 	saveButton.style.display = 'none';
@@ -640,16 +655,20 @@ function addNewTask(event) {
 	}
 
 	let tasks = getTasks();
+	const categories = getCategories();
+	const categoryID = event.target.querySelector('.new-task__category-picker').dataset.id;
+	const maxOrder = Math.max(...categories.map(obj => obj.order));
 
 	const todo = {
+		id: uuidv4(),
 		title: event.target.elements['new-task-title'].value,
 		desc: event.target.elements['new-task-desc'].value,
 		importance: event.target.elements['new-task-importance'].value,
-		category: event.target.querySelector('.new-task__category-picker').innerHTML,
-		color: event.target.querySelector('.new-task__category-picker').style.backgroundColor,
+		categoryID: categoryID,
 		expiryDate: event.target.elements['new-task-date'].value,
 		done: false,
 		dateCreated: new Date().getTime(),
+		order: maxOrder + 1,
 	}
 
 	tasks.push(todo);
