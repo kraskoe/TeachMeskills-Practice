@@ -5,7 +5,7 @@
 .new-task__form-container {
 	display: flex;
 	gap: 30px;
-	padding-bottom: 1rem;
+	padding-bottom: 1.5rem;
 }
 
 .new-task__title,
@@ -64,6 +64,7 @@
 	font-size: 1.125rem;
 	padding: 1rem 1.5rem;
 	cursor: pointer;
+	box-shadow: var(--shadow);
 }
 
 .new-task__category-item,
@@ -166,6 +167,7 @@
 	background-color: #fff;
 	opacity: 0.6;
 	transition: 0.5s ease-in-out;
+	box-shadow: var(--shadow);
 }
 
 .new-task__importance-label::before {
@@ -178,15 +180,15 @@
 }
 
 label[for='new-task-importance_1']::before {
-	content: url("icons/generic.png");
+	content: url("../icons/generic.png");
 }
 
 label[for='new-task-importance_2']::before {
-	content: url("icons/important.png");
+	content: url("../icons/important.png");
 }
 
 label[for='new-task-importance_3']::before {
-	content: url("icons/crucial.png");
+	content: url("../icons/crucial.png");
 }
 
 input[name='new-task-importance'] {
@@ -203,19 +205,35 @@ input[name='new-task-importance']:checked ~ label,
 	cursor: pointer;
 }
 
-.new-task__add-task {
+.new-task__actions {
+	display: flex;
+	gap: 1rem;
+}
+
+.new-task__add-task,
+.new-task__cancel-task{
 	display: block;
 	width: 100%;
 	font-size: 1.125rem;
 	padding: 1rem 1.5rem;
 	color: #fff;
-	background-color: var(--primary);
 	border-radius: 0.5rem;
 	box-shadow: var(--primary-glow);
 	cursor: pointer;
 	transition: 0.5s ease-in-out;
 	opacity: 0.6;
 }
+
+.new-task__add-task {
+	background-color: var(--danger);
+	flex: 1 1 80%;
+}
+
+.new-task__cancel-task {
+	background-color: var(--primary);
+	flex: 1 1 20%;
+}
+
 
 .new-task__add-task:hover {
 	opacity: 1;

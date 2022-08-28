@@ -42,14 +42,18 @@ hr + .todo__item._done {
 	flex: 1 1 auto;
 }
 
-.todo__importance {
+.todo__imp-wrapper {
+	position: relative;
+}
+
+.todo__importance,
+.todo__imp-item {
 	position: relative;
 	display: block;
 	margin: 0 0.5rem;
 	line-height: 2.4rem;
 	border-radius: 0.5rem;
 	color: var(--dark);
-	cursor: pointer;
 	background-color: #fff;
 	opacity: 0.6;
 	transition: 0.5s ease-in-out;
@@ -57,24 +61,94 @@ hr + .todo__item._done {
 	height: 2.5rem;
 }
 
-.todo__importance[data-importance='0'] {
-	background: url("icons/generic.png") no-repeat center/cover;
+.todo__importance[data-importance='0'],
+.todo__imp-item[data-importance='0'] {
+	background: url("../icons/generic.png") no-repeat center/cover;
 }
 
-.todo__importance[data-importance='1'] {
-	background: url("icons/important.png") no-repeat center/cover;
+.todo__importance[data-importance='1'],
+.todo__imp-item[data-importance='1'] {
+	background: url("../icons/important.png") no-repeat center/cover;
 }
 
-.todo__importance[data-importance='2'] {
-	background: url("icons/crucial.png") no-repeat center/cover;
+.todo__importance[data-importance='2'],
+.todo__imp-item[data-importance='2'] {
+	background: url("../icons/crucial.png") no-repeat center/cover;
 }
 
-.todo__category {
+.todo__imp-container {
+	left: -0.5rem;
+}
+
+.todo__item:last-child .todo__imp-container {
+	bottom: 2.5rem;
+	left: -0.5rem;
+}
+
+.todo__imp-item {
+	margin-top: 0.5rem;
+	cursor: pointer;
+}
+
+.todo__imp-item:first-child {
+	margin-top: 0;
+}
+
+.todo__category-wrapper {
+	margin-right: 1rem;
+	position: relative;
+}
+
+.todo__category,
+.todo__category-item {
 	padding: 0.5rem;
 	border-radius: 0.5rem;
 	box-shadow: var(--shadow);
 	color: #fff;
-	margin-right: 1rem;
+	font-size: 0.8rem;
+	width: 100%;
+	text-align: center;
+}
+
+.todo__category-container,
+.todo__imp-container {
+	/*display: none;*/
+	position: absolute;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	background-color: #fff;
+	z-index: 2;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	transform: scaleY(0);
+	max-height: 0;
+	transition: 0.5s ease-in-out;
+}
+
+.todo__category-container {
+	overflow-y: auto;
+}
+
+.todo__category-container._active,
+.todo__imp-container._active {
+	/*display: block;*/
+	transform: scaleY(1);
+	max-height: 12.6rem;
+}
+
+.todo__category-item {
+	margin-top: 0.5rem;
+	cursor: pointer;
+	list-style: none;
+}
+
+.todo__category-item:first-child {
+	margin-top: 0;
+}
+
+.todo__item:last-child .todo__category-container {
+	bottom: 2rem;
 }
 
 .todo__expiry {

@@ -1,0 +1,38 @@
+.todo__sort-options {
+	margin-top: 0.5rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.todo__closed-label,
+.todo__sort-label {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	color: #fff;
+	cursor: pointer;
+	opacity: 0.6;
+	transition: 0.5s ease-in-out;
+	box-shadow: var(--shadow);
+}
+
+.todo__closed-label {
+	background-color: var(--danger);
+}
+
+.todo__sort-label {
+	background-color: var(--primary);
+}
+
+.todo__closed-label:hover,
+.todo__sort-label:hover,
+.todo__closed-checkbox:checked + .todo__closed-label ,
+.todo__sort-radio:checked + .todo__sort-label {
+	opacity: 1;
+}
+
+._spaced {
+	flex: 1 1 auto;
+	text-align: right;
+}

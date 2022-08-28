@@ -1,7 +1,8 @@
-import './style.css';
-import './greeting.css';
-import './new-task.css';
-import './todo-list.css';
+import '../css/style.css';
+import '../css/greeting.css';
+import '../css/new-task.css';
+import '../css/todo-list.css';
+import '../css/sort-options.css';
 import {accessUserName, buildGreetingSection} from './greetingBuilder';
 import {buildNewTaskSection} from './newTaskBuilder';
 import {buildTodoSection, displayTasks} from './tasksHandler';
