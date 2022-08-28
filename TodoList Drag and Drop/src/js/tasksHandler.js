@@ -3,17 +3,30 @@ import {buildSortOptions}  from './buildTodoSortOptions';
 
 function buildTodoSection() {
 	const todoSection = document.createElement('section');
+	const headerWrapper = document.createElement('div');
 	const todoHeader = document.createElement('h3');
+	const headerButton = document.createElement('span');
 	const todoList = document.createElement('div');
 
 	todoHeader.innerHTML = 'Task list';
+	headerWrapper.classList.add('_header-wrapper');
+	headerWrapper.append(todoHeader);
+	headerButton.innerHTML = '+';
+	headerWrapper.append(headerButton);
+
 	todoList.classList.add('todo__list')
 
-	todoSection.append(todoHeader);
+	todoSection.append(headerWrapper);
 	todoSection.classList.add('todo__section');
 	todoSection.insertAdjacentHTML('beforeend', '<hr>');
 	todoSection.append(buildSortOptions());
 	todoSection.append(todoList);
+
+	headerButton.addEventListener('click', e => {
+		e.target.classList.toggle('_active');
+		document.querySelector('.todo__sort-options').classList.toggle('_active');
+		document.querySelector('.todo__list').classList.toggle('_active');
+	})
 
 	return todoSection;
 }

@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 function buildNewTaskSection() {
 	const newTaskSection = document.createElement('section');
+	const headerWrapper = document.createElement('div');
 	const newTaskFormHeader = document.createElement('h3');
+	const headerButton = document.createElement('span');
 	const newTaskForm = document.createElement('form');
 	const newTaskSubmitButton = document.createElement('button');
 	const cancelNewTaskSubmitButton = document.createElement('button');
@@ -22,6 +24,10 @@ function buildNewTaskSection() {
 	cancelNewTaskSubmitButton.classList.add('new-task__cancel-task');
 
 	newTaskFormHeader.innerHTML = 'Create a task';
+	headerWrapper.classList.add('_header-wrapper');
+	headerWrapper.append(newTaskFormHeader);
+	headerButton.innerHTML = '+';
+	headerWrapper.append(headerButton);
 
 	newTaskFormContainer.classList.add('new-task__form-container');
 
@@ -34,9 +40,15 @@ function buildNewTaskSection() {
 	newTaskForm.append(newTaskFormContainer, taskActionsContainer);
 
 	newTaskSection.classList.add('new-task__section');
-	newTaskSection.append(newTaskFormHeader);
+	newTaskSection.append(headerWrapper);
+
 	newTaskSection.insertAdjacentHTML('beforeend', '<hr>');
 	newTaskSection.append(newTaskForm);
+
+	headerButton.addEventListener('click', e => {
+		e.target.classList.toggle('_active');
+		document.getElementById('new-task__form').classList.toggle('_active');
+	})
 
 	newTaskForm.addEventListener('submit', addNewTask);
 	cancelNewTaskSubmitButton.addEventListener('click', rebuildMenu);
@@ -396,7 +408,11 @@ function deleteCategory(event) {
 	const taskID = event.target.closest('.new-task__category-item').dataset?.id;
 	// const taskName = event.target.closest('.new-task__category-item').querySelector('[type="text"]').value;
 	categories = categories.filter(cat => cat.id !== taskID);
+
 	setCategories(categories);
+
+	displayTasks();
+
 	refreshCategories();
 }
 
@@ -531,6 +547,8 @@ function saveNewCategory(event) {
 	})
 
 	setCategories(categories);
+
+	displayTasks();
 
 	refreshCategories();
 }

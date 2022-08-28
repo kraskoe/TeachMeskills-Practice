@@ -34,7 +34,6 @@ h3 {
 	color: var(--dark);
 	font-size: 1rem;
 	font-weight: 400;
-	margin-bottom: 0.5rem;
 }
 
 h4 {
@@ -74,6 +73,35 @@ button {
 html {
 	scrollbar-color: var(--light) var(--grey);
 	scrollbar-width: thin;
+}
+
+._header-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0.3rem;
+}
+
+._header-wrapper h3 {
+	flex: 1 1 auto;
+}
+
+._header-wrapper span {
+	display:inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background-color: var(--danger);
+	color: #fff;
+	font-size: 2rem;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+}
+
+._header-wrapper span._active {
+	transform: rotate(45deg);
 }
 
 ._symbols-counter {

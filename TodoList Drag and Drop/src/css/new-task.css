@@ -1,5 +1,13 @@
 .new-task__form {
 	padding-top: 1rem;
+	transform: scaleY(0);
+	max-height: 0;
+	transition: 0.5s ease-in-out;
+}
+
+.new-task__form._active {
+	transform: scaleY(1);
+	max-height: 100%;
 }
 
 .new-task__form-container {
