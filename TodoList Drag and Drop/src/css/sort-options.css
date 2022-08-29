@@ -40,6 +40,20 @@
 	opacity: 1;
 }
 
+.todo__search {
+	font-size: 1rem;
+	padding: 0.5rem;
+	color: var(--dark);
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	max-width: 12rem;
+}
+
+.todo__search::placeholder {
+	text-align: right;
+}
+
 ._spaced {
 	flex: 1 1 auto;
 	text-align: right;

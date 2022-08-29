@@ -6,8 +6,9 @@ function buildSortOptions() {
 	const filterClosedLabel = document.createElement('label');
 	const sortTitle = document.createElement('div');
 	const sortButtons = ['Order', 'Importance', 'Category', 'Expiry date'];
+	const search = document.createElement('input');
 
-	sortOptions.classList.add('todo__sort-options');
+	sortOptions.classList.add('todo__sort-options', '_active');
 
 	filterClosedCheckbox.type = 'checkbox';
 	filterClosedCheckbox.id ='todo__closed-checkbox';
@@ -38,6 +39,16 @@ function buildSortOptions() {
 
 		sortOptions.append(sortItemRadio, sortItemLabel);
 	}
+
+	search.type = 'text';
+	search.placeholder = '🔍';
+	search.classList.add('todo__search');
+
+	sortOptions.append(search);
+
+	search.addEventListener('input', e => {
+		displayTasks();
+	})
 
 	sortOptions.addEventListener('click', e => {
 		if (e.target.classList.contains('todo__closed-checkbox') || e.target.classList.contains('todo__sort-radio')) {

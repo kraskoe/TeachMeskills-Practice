@@ -12,9 +12,10 @@ function buildTodoSection() {
 	headerWrapper.classList.add('_header-wrapper');
 	headerWrapper.append(todoHeader);
 	headerButton.innerHTML = '+';
+	headerButton.classList.add('_active');
 	headerWrapper.append(headerButton);
 
-	todoList.classList.add('todo__list')
+	todoList.classList.add('todo__list','_active');
 
 	todoSection.append(headerWrapper);
 	todoSection.classList.add('todo__section');
@@ -38,7 +39,12 @@ function displayTasks() {
 	const filterClosed = document.getElementById('todo__closed-checkbox');
 	const sortOptionArr = document.querySelectorAll('.todo__sort-radio');
 	const sortOption = Array.from(sortOptionArr).find(obj => obj.checked);
+	const search = document.querySelector('.todo__search');
 	let tasks = getTasks();
+
+	if (search.value.length > 2) {
+		tasks = tasks.filter(task => (task.title.toLowerCase().includes(search.value.toLowerCase()) || task.desc.toLowerCase().includes(search.value.toLowerCase())));
+	}
 
 	if (sortOption) {
 		switch (sortOption.id) {
