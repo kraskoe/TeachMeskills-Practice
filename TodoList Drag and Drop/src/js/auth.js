@@ -61,7 +61,6 @@ async function loginEmailPassword(event) {
 	let loginPassword = authForm.querySelector('.auth__password-input');
 	hideLoginError();
 
-	try {
 		setPersistence(auth, browserSessionPersistence)
 			.then(async () => {
 				return await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
@@ -77,17 +76,11 @@ async function loginEmailPassword(event) {
 			.then(() => getUserData(userID, 'tasks'))
 			.then(() => displayTasks())
 			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(error.code, error.message);
+				showLoginError(error);
 			});
 
 		// const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
 		// console.log(userCredential.user);
-	}
-	catch (error) {
-		showLoginError(error);
-	}
 }
 
 function showLoginError(error) {
@@ -106,11 +99,14 @@ async function createUserAccount(event) {
 	const password = authForm.querySelector('.auth__password-input');
 	const name = authForm.querySelector('.auth__name-input');
 
+	console.log(name);
+
 	await createUserWithEmailAndPassword(auth, email.value, password.value)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
-			writeUserData(user.uid, 'username', name);
+			console.log(user.uid)
+			writeUserData(user.uid, 'username', name.value);
 			// console.log(user.uid);
 		})
 		.then(() => getUserData(userID, 'username'))
