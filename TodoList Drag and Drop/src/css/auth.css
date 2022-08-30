@@ -1,0 +1,105 @@
+#auth__form {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	z-index: 2;
+	padding: 2rem;
+}
+
+.auth__section {
+	background-color: var(--light);
+	width: 100vw;
+	height: 100vh;
+	display: none;
+}
+
+.auth__email,
+.auth__name,
+.auth__password {
+	margin-bottom: 1rem;
+	display: block;
+	width: 100%;
+}
+
+.auth__email-input,
+.auth__password-input,
+.auth__name-input {
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-right: 0.5rem;
+}
+
+.auth__name {
+	display: none;
+}
+
+.auth__name._active {
+	display: inline-block;
+}
+
+.auth__name-input {
+	display: none;
+}
+
+.auth__name-input._active {
+	display: inline-block;
+}
+
+.auth__actions {
+	display: flex;
+	justify-content: center;
+}
+
+.auth__login,
+.auth__register {
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: var(--primary-glow);
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+	opacity: 0.6;
+	display: none;
+}
+
+.auth__login._active,
+.auth__register._active {
+	display: block;
+}
+
+.auth__login {
+	background-color: var(--primary);
+}
+
+.auth__register {
+	background-color: var(--danger);
+}
+
+.auth__login:hover,
+.auth__register:hover {
+	opacity: 1;
+}
+
+._switcher {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+._error {
+	color: red;
+	margin-bottom: 0.5rem;
+	display: none;
+}

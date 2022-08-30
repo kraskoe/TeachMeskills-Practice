@@ -662,4 +662,4 @@ function rebuildMenu() {
 	formContainer.append(buildNewTaskOptionsColumn());
 }
 
-export {buildNewTaskSection};
+export {buildNewTaskSection, refreshCategories, displayTasks};

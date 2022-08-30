@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from "uuid";
-
+import {getDatabase, child, ref, get, set, onValue} from 'firebase/database';
 
 
 function initCategories() {
@@ -19,7 +19,7 @@ function initCategories() {
 }
 
 function getCategories() {
-	if (!localStorage.key('tasks')) initCategories();
+	if (!localStorage.getItem('categories')) initCategories();
 	return  JSON.parse(localStorage
 		.getItem('categories'))
 		?.sort((obj1, obj2) => obj1.order - obj2.order);
@@ -39,4 +39,30 @@ function setTasks(tasks) {
 	localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-export {getCategories, setCategories, getTasks, setTasks};
+async function getUserData(userId, entry) {
+	const db = getDatabase();
+	const reference = ref(db,`users/${userId}/`);
+
+	await get(child(reference, `${entry}`))
+		.then((snapshot) => {
+			if (snapshot.exists()) {
+				localStorage.setItem(entry, snapshot.val());
+				// return snapshot.val();
+			} else {
+				// return "No data available";
+			}
+		})
+		// .then(response => response)
+		.catch((error) => {
+			console.error(error);
+		});
+}
+
+async function writeUserData(userId, entry, value) {
+	const db = getDatabase();
+	const reference = ref(db, `users/${userId}/${entry}`);
+
+	await set(reference, value);
+}
+
+export {getCategories, setCategories, getTasks, setTasks, getUserData, writeUserData};
